@@ -239,12 +239,10 @@ The intersection $\vec{I}$ of the angle bisectors of $B$ and $C$:
 \end{figure}
 \solution
 
-Let $\angle BAI$ be equal to $\theta_1$ and $\angle CAI$ be $\theta_2$.
-
-We need to verify \begin{align}\theta_1 &= \theta_2.\end{align}
+We need to verify \begin{align}\angle BAI &= \angle CAI.\end{align}
 consider LHS:
 \begin{align} 
-\cos{\theta_1} &= \frac{\brak{\vec{B} - \vec{A}}^{\top}\vec{I} - \vec{A}}{\norm{\vec{B} - \vec{A}} \norm{ \vec{I} - \vec{A}}}\\
+\cos{\angle BAI} &= \frac{\brak{\vec{B} - \vec{A}}^{\top}\vec{I} - \vec{A}}{\norm{\vec{B} - \vec{A}} \norm{ \vec{I} - \vec{A}}}\\
  &= \frac{\brak{\myvec{-4\\6} - \myvec{1\\-1}}^{\top}\myvec{\frac{{\sqrt{61}-16-3\sqrt{37}}}{\sqrt{37}+4+\sqrt{61}}\\\frac{{-\sqrt{61}+24-5\sqrt{37}}}{\sqrt{37}+4+\sqrt{61}}} - \myvec{1\\-1}}{\norm{\myvec{-4\\6} - \myvec{1\\-1}} \norm{ \myvec{\frac{{\sqrt{61}-16-3\sqrt{37}}}{\sqrt{37}+4+\sqrt{61}}\\\frac{{-\sqrt{61}+24-5\sqrt{37}}}{\sqrt{37}+4+\sqrt{61}}} - \myvec{1\\-1}}}\\
  &= \frac{\myvec{-5\\7}^{\top}\myvec{\frac{{\sqrt{61}-16-3\sqrt{37}}}{\sqrt{37}+4+\sqrt{61}}-1\\\frac{{-\sqrt{61}+24-5\sqrt{37}}}{\sqrt{37}+4+\sqrt{61}}+1}}{\norm{\myvec{-5\\7}} \norm{ \myvec{\frac{{\sqrt{61}-16-3\sqrt{37}}}{\sqrt{37}+4+\sqrt{61}}-1\\\frac{{-\sqrt{61}+24-5\sqrt{37}}}{\sqrt{37}+4+\sqrt{61}}+1}}}
 \end{align}
@@ -261,28 +259,28 @@ from (1.1.2.1) length of the side $AB$
 %||\vec{A} - \vec{B}|| = \sqrt{(\vec{B}-\vec{A})^T\vec{B}-\vec{A}} &(1.1.2.1)\\
 \norm{\vec{A} - \vec{B}} &= \sqrt{(\vec{B}-\vec{A}){^\top}\vec{B}-\vec{A}}\\
 &= \frac{13.82315}{\sqrt{74}\sqrt{6.2010538036}}\\
-\implies \cos{\theta_1} &= 0.64529 \\
-\implies \theta_1 &= \cos^{-1}{0.64529}\\
+\implies \cos{\angle BAI} &= 0.64529 \\
+\implies \angle BAI &= \cos^{-1}{0.64529}\\
 &= 49.7311 \label{eq:angle BAI}
 \end{align}
 
 consider RHS:
 
 \begin{align}
-\cos{\theta_2} &= \frac{(\vec{I} - \vec{A})^{\top}\vec{C} - \vec{A}}{\norm{\vec{I} - \vec{A}} \norm{ \vec{C} - \vec{A}}}\\
+\cos{\angle CAI} &= \frac{(\vec{I} - \vec{A})^{\top}\vec{C} - \vec{A}}{\norm{\vec{I} - \vec{A}} \norm{ \vec{C} - \vec{A}}}\\
 &= \frac{\brak{\myvec{\frac{{\sqrt{61}-16-3\sqrt{37}}}{\sqrt{37}+4+\sqrt{61}}\\\frac{{-\sqrt{61}+24-5\sqrt{37}}}{\sqrt{37}+4+\sqrt{61}}} - \myvec{1\\-1}}^{\top}\myvec{-3\\-5} - \myvec{1\\-1}}{\norm{\myvec{\frac{{\sqrt{61}-16-3\sqrt{37}}}{\sqrt{37}+4+\sqrt{61}}\\ \frac{{-\sqrt{61}+24-5\sqrt{37}}}{\sqrt{37}+4+\sqrt{61}}} - \myvec{1\\-1}} \norm{\myvec{-3\\-5} - \myvec{1\\-1}}}\\
 &= \frac{\brak{\myvec{-1.47756\\-0.79495} - \myvec{1\\-1}}^{\top}\myvec{-4\\-4}}{\norm{\myvec{-1.47756\\-0.79495} - \myvec{1\\-1}} \norm{ \myvec{-4\\-4}}}\\
 &= \frac{-4\myvec{-2.47756\\0.20505}^{\top}\myvec{1\\1}}{4\norm{\myvec{-2.47756\\0.20505}} \norm{ \myvec{1\\1}}}\\
 &= -\frac{\myvec{-2.47756&0.20505}\myvec{1\\1}}{\sqrt{\myvec{-2.47756&0.20505}\myvec{-2.47756\\0.20505}}\sqrt{\myvec{1&1}\myvec{1\\1}}}\\
 &= \frac{2.27251}{\sqrt{6.2010538036}\sqrt{2}}\\
-\implies \cos{\theta_2} &= 0.64529 \\
-\implies \theta_2 &= \cos^{-1}{0.64529}\\
+\implies \cos{\angle CAI} &= 0.64529 \\
+\implies \angle CAI &= \cos^{-1}{0.64529}\\
 &= 49.7311 \label{eq:angle CAI}
 \end{align}
 
 Therefore from the equations \eqref{eq:angle BAI} and \eqref{eq:angle CAI}, we get:
 \begin{align}
-\cos{\theta_1} &= \cos{\theta_2}\\
+\angle BAI &= \angle CAI\\
 \therefore LHS &= RHS
 \end{align}
 Hence we have verified that \begin{align}\angle BAI &= \angle CAI.\end{align}
