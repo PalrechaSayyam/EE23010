@@ -220,24 +220,33 @@ Two dice are thrown at the same time. Find the probability of getting
     \item[(ii)] different numbers on both dice.
 \end{enumerate}
 \solution
-Let 
-\begin{align}
-	 X =
-	\begin{cases}
-		1, & \text{if same number on both dice}\\ 
-		0, & \text{if different numbers on both dice}
-	\end{cases}
-\end{align}
+Let the random variables:
+
+$X$ represent the outcome of the first die,
+
+$Y$ represent the outcome of the second die.
+
+Since each die has 6 sides, both $X$ and $Y$ can take on values from the set \{1, 2, 3, 4, 5, 6\}.
 \begin{enumerate}
-	\item[(i)] For getting the same number on both dice there are 6 favorable outcomes.
-	\begin{align}
-	p_X(1) &= \frac{6}{36}\\
-	&= \frac{1}{6}				 
-	\end{align}
-	\item[(ii)] For getting the different numbers on both dice there are 30 favorable outcomes.
-	\begin{align}
-	p_X(0) &= \frac{30}{36}\\
-	&= \frac{5}{6}				 
-	\end{align}
+\item[(i)] We need to find: $P(X = Y)$
 \end{enumerate}
+\begin{align}
+	P(X = Y) &= \sum_{i=1}^{6} P\brak{(X = i).(Y = i)}
+\end{align}
+Since both the events are independent we get,
+\begin{align}
+	 &= \sum_{i=1}^{6} P(X = i).P(Y = i)\\
+	 &= 6\times\brak{\frac{1}{6}\cdot\frac{1}{6}}\\
+	 &= \frac{1}{6}
+\end{align}
+$$\therefore \text{The probability of same number on both the dice is }\frac{1}{6}.$$
+\begin{enumerate}
+\item[(ii)] We need to find: $P(X \neq Y)$
+\end{enumerate}
+\begin{align}
+	P(X \neq Y) &= 1 - P(X = Y)\\
+	&= 1 - \frac{1}{6}\\
+	&= \frac{5}{6}
+\end{align}
+$$\therefore \text{The probability of different numbers on both the dice is }\frac{5}{6}.$$
 \end{document}
