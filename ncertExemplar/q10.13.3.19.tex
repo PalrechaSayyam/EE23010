@@ -226,27 +226,77 @@ $X$ represent the outcome of the first die,
 
 $Y$ represent the outcome of the second die.
 
-Since each die has 6 sides, both $X$ and $Y$ can take on values from the set \{1, 2, 3, 4, 5, 6\}.
+Since each die has 6 sides, both $X$ and $Y$ can take on values from the set {1, 2, 3, 4, 5, 6}.
+
+Let \begin{align} k &= X-Y \end{align}
+$k$ can take values ranging from -5 to 5.
+
+We need to find the distribution of $X-Y$:
+\begin{table}[h]
+\begin{centering}
+\begin{tabular}{|c|c|c|}
+\hline
+($X,Y$) & $X-Y$ & $p_{X-Y}(k)$ \\
+\hline
+(1,6) & -5 & $\frac{1}{36}$\\
+\hline
+(1,5), (2,6) & -4 & $\frac{2}{36}$\\
+\hline
+(1,4), (2,5), (3,6) & -3 & $\frac{3}{36}$\\
+\hline
+(1,3), (2,4), (3,5), (4,6) & -2 & $\frac{4}{36}$\\
+\hline
+(1,2), (2,3), (3,4), (4,5), (5,6) & -1 & $\frac{5}{36}$\\
+\hline
+(1,1), (2,2), (3,3), (4,4), (5,5), (6,6) & 0 & $\frac{6}{36}$\\
+\hline
+(2,1), (3,2), (4,3), (5,4), (6,5) & 1 & $\frac{5}{36}$\\
+\hline
+(3,1), (4,2), (5,3), (6,4) & 2 & $\frac{4}{36}$\\
+\hline
+(4,1), (5,2), (6,3) & 3 & $\frac{3}{36}$\\
+\hline
+(5,1), (6,2) & 4 & $\frac{2}{36}$\\
+\hline
+(6,1) & 5 & $\frac{1}{36}$\\
+\hline
+\end{tabular}
+\end{centering}
+\caption{Distribution of $X-Y$}
+\label{table:Table1}
+\end{table}
 \begin{enumerate}
-\item[(i)] We need to find: $P(X = Y)$
+\item[(i)] From the table \ref{table:Table1}, we get:
 \end{enumerate}
 \begin{align}
-	P(X = Y) &= \sum_{i=1}^{6} P\brak{(X = i).(Y = i)}
+\intertext{The PMF of $X-Y$ as:}
+p_{X-Y}(k) &=
+	\begin{cases}
+		\frac{1}{36}, & k=-5\\
+		\frac{2}{36}, & k=-4\\
+		\frac{3}{36}, & k=-3\\
+		\frac{4}{36}, & k=-2\\
+		\frac{5}{36}, & k=-1\\
+		\frac{6}{36}, & k=0\\
+		\frac{5}{36}, & k=1\\
+		\frac{4}{36}, & k=2\\
+		\frac{3}{36}, & k=3\\
+		\frac{2}{36}, & k=4\\
+		\frac{1}{36}, & k=5
+	\end{cases}
 \end{align}
-Since both the events are independent we get,
+From the PMF of $X-Y$ we get:
 \begin{align}
-	 &= \sum_{i=1}^{6} P(X = i).P(Y = i)\\
-	 &= 6\times\brak{\frac{1}{6}\cdot\frac{1}{6}}\\
-	 &= \frac{1}{6}
+	Pr(X=Y) &= p_{X-Y}(0) \\
+	p_{X-Y}(0) &= \frac{6}{36}\\
+	&= \frac{1}{6}	\label{eq:result}	
 \end{align}
-$$\therefore \text{The probability of same number on both the dice is }\frac{1}{6}.$$
 \begin{enumerate}
-\item[(ii)] We need to find: $P(X \neq Y)$
+\item[(ii)] From $\ref{eq:result}$, we get:
 \end{enumerate}
 \begin{align}
-	P(X \neq Y) &= 1 - P(X = Y)\\
-	&= 1 - \frac{1}{6}\\
-	&= \frac{5}{6}
+Pr(X \neq Y) &= 1-p_{X-Y}(0)\\
+&= 1-\frac{1}{6}\\
+&= \frac{5}{6}
 \end{align}
-$$\therefore \text{The probability of different numbers on both the dice is }\frac{5}{6}.$$
 \end{document}
