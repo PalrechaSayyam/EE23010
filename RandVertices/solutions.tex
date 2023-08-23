@@ -1,0 +1,145 @@
+\def\inputGnumericTable{}
+\let\negmedspace\undefined
+\let\negthickspace\undefined
+\documentclass[journal,12pt,onecolumn]{IEEEtran}
+\usepackage{cite}
+\usepackage{amsmath,amssymb,amsfonts,amsthm}
+\usepackage{algorithmic}
+\usepackage{graphicx}
+\usepackage{textcomp}
+\usepackage{xcolor}
+\usepackage{txfonts}
+\usepackage{listings}
+\usepackage{enumitem}
+\usepackage{mathtools}
+\usepackage{gensymb}
+\usepackage[breaklinks=true]{hyperref}
+\usepackage{tkz-euclide} % loads  TikZ and tkz-base
+\usepackage{listings}
+\usepackage{gvv}
+
+  \usepackage[latin1]{inputenc}
+  \usepackage{color}                                            %%
+  \usepackage{array}                                            %%
+  \usepackage{longtable}                                        %%
+  \usepackage{calc}                                             %%
+  \usepackage{multirow}                                         %%
+  \usepackage{hhline}                                           %%
+  \usepackage{ifthen}                                           %%
+  %optionally (for landscape tables embedded in another document): %%
+  \usepackage{lscape}    
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{problem}{Problem}
+\newtheorem{proposition}{Proposition}[section]
+\newtheorem{lemma}{Lemma}[section]
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{example}{Example}[section]
+\newtheorem{definition}[problem]{Definition}
+\newcommand{\BEQA}{\begin{eqnarray}}
+\newcommand{\EEQA}{\end{eqnarray}}
+\newcommand{\define}{\stackrel{\triangle}{=}}
+\theoremstyle{remark}
+\newtheorem{rem}{Remark}
+
+%\bibliographystyle{ieeetr}
+\setlength{\parindent}{0pt}
+\begin{document}
+\bibliographystyle{IEEEtran}
+
+\vspace{3cm}
+\title{
+%	\logo{
+EE23010 Assignment
+%	}
+}
+\author{ Sayyam Palrecha$^{*}$ EE22BTECH11047% <-this % stops a space
+	\thanks{}	
+}
+
+% make the title area
+\maketitle
+%\tableofcontents
+\bigskip
+\renewcommand{\thefigure}{\theenumi}
+\renewcommand{\thetable}{\theenumi}
+
+Consider a triangle with vertices:
+\begin{align}
+\vec{A} = \myvec{1\\-1},
+\vec{B} = \myvec{-4\\6},
+\vec{C} = \myvec{-3\\-5}
+\end{align}
+\counterwithin{figure}{section}
+\counterwithin{table}{section}
+\begin{table}[!ht]
+	\section{vectors}
+	\centering
+	\input{Q1.1.tex}
+	\caption{Vectors}
+	\label{table:vectors}
+\end{table}
+
+\begin{figure}
+\includegraphics[width=\columnwidth]{./figs/Q1.1.3.png}
+\caption{Triangle generated using python}
+\label{fig:vectors}
+\end{figure}
+
+\begin{table}[!ht]
+	\section{median}
+	\centering
+	\input{Q1.2.tex}
+	\caption{Median}
+	\label{table:median}
+\end{table}
+
+\begin{figure}
+\includegraphics[width=\columnwidth]{./figs/Q1.2.2.png}
+\caption{Triangle generated using python}
+\label{fig:median}
+\end{figure}
+
+\begin{table}[!ht]
+	\section{altitude}
+	\centering
+	\input{Q1.3.tex}
+	\caption{Altitude}
+	\label{table:Altitude}
+\end{table}
+
+\begin{figure}
+\includegraphics[width=\columnwidth]{./figs/Q1.3.4.png}
+\caption{Triangle generated using python}
+\label{fig:altitude}
+\end{figure}
+
+\begin{table}[!ht]
+	\section{perpendicular bisector}
+	\centering
+	\input{Q1.4.tex}
+	\caption{Perpendicular Bisector}
+	\label{table:Perpendicular Bisector}
+\end{table}
+
+\begin{figure}
+\includegraphics[width=\columnwidth]{./figs/Q1.4.1.png}
+\caption{Triangle generated using python}
+\label{fig:perpendicular bisector}
+\end{figure}
+
+\begin{table}[!ht]
+	\section{angle bisector}
+	\centering
+	\input{Q1.5.tex}
+	\caption{Angle Bisector}
+	\label{table:Angle Bisector}
+\end{table}
+
+\begin{figure}
+\includegraphics[width=\columnwidth]{./figs/Q1.5.1.png}
+\caption{Triangle generated using python}
+\label{fig:angle bisector}
+\end{figure}
+
+\end{document}
