@@ -146,6 +146,7 @@ print(math.sqrt(V5@V6))
 Mat = np.array([[1,1,1],[A[0],B[0],C[0]],[A[1],B[1],C[1]]])
 rank = np.linalg.matrix_rank(Mat)
 print("The solution to the question 1.1.3:")
+print("Rank of the matrix",rank)
 if (rank<=2):
 	print("Hence proved that points A,B,C in a triangle are collinear")
 else:
