@@ -601,6 +601,9 @@ plt.plot(x_AB[0, :], x_AB[1, :], label='$AB$')
 plt.plot(x_BC[0, :], x_BC[1, :], label='$BC$')
 plt.plot(x_CA[0, :], x_CA[1, :], label='$CA$')
 
+#Plotting the circumcircle
+plt.plot(x_circ[0,:],x_circ[1,:],label='$circumcircle$')
+
 #Generating the circumcircle
 [O,R] = ccircle(A,B,C)
 x_circ= circ_gen(O,R)
