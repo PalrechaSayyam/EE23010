@@ -250,7 +250,7 @@ p_X(k) &=
 \end{align}
 $p_Y(k)$ is same as $p_X(k)$.
 \begin{enumerate}
-\item[(1)] Finding the solution using convolution:
+\item[1.] Finding the solution using convolution:
 \end{enumerate}
 \begin{align}
 p_Z(k) &= P(k = X-Y)\\
@@ -259,17 +259,17 @@ p_Z(k) &= P(k = X-Y)\\
 We arrive at the expectation of $Z$: 
 \begin{align}
 E\brak{p_X(k+Y)} &= \sum^{6}_{m=1}[p_X(k+m)*p_Y(m)]\\
-&= \frac{1}{6}\sum^6_{m=1} p_X(k+m) \label{eq:Expectation}
+&= \frac{1}{6}\sum^6_{m=1} p_X(k+m)\\
+&= \frac{1}{6}(p_x(k+1)+p_x(k+2)+p_x(k+3) \nonumber \\ &\quad +p_x(k+4)+p_x(k+5)+p_x(k+6)) \label{eq:Expectation}
 \end{align}
 \begin{enumerate}
 \item[(i)] Finding the probability for $Z = 0$
 \end{enumerate}
 We need to find PMF($Z$) at $Z = 0$
 \begin{align}
-	P(Z=0) &= \frac{1}{6}\sum^6_{m=1} p_X(0+m)\\
-	&= \frac{1}{6}\sum^6_{m=1} p_X(m)\\
-	&= \frac{1}{6}\sum^6_{m=1}\frac{1}{6}\\
-	&= \frac{1}{6}(1)\\
+	\intertext{\{From the result \eqref{eq:Expectation}\}}
+	P(Z=0) &= \frac{1}{6}\brak{p_x(1)+p_x(2)+p_x(3)+p_x(4)+p_x(5)+p_x(6)}\\
+	&= \frac{1}{6}\brak{\frac{1}{6}+\frac{1}{6}+\frac{1}{6}+\frac{1}{6}+\frac{1}{6}+\frac{1}{6}}\\
 	&= \frac{1}{6}	
 \end{align}
 \begin{enumerate}
@@ -281,22 +281,32 @@ We need to find PMF($Z$) at $Z = 0$
 	&= \frac{5}{6}
 \end{align}
 \begin{enumerate}
-\item[(2)] Finding the solution using z-transform:
+\item[2.] Finding the solution using z-transform:
 \end{enumerate}
-\begin{enumerate}
-\item[(i)] PMF of $Z$ using $z$-transform:
-\end{enumerate}
+PMF of $Z$ using $z$-transform:
 \begin{align}
 	P(k=Z) &= P(k=X-Y)\\
-	\intertext{applying the z-transform on bothe the sides}
+	\intertext{applying the z-transform on both the sides}
 	z\{P(k=Z)\} &= z\{P(k=X-Y)\}\\
-	p_Z(k) &= z\{p_X(k)*p_{-Y}(k)\}\\
-	&= \brak{\sum^6_{m=1}p_X(m)\cdot z^m}*\brak{\sum^6_{m=1}p_Y(m)\cdot z^{-m}}\\
-	&= \brak{\frac{1}{6}\sum^6_{m=1}z^m}\brak{\frac{1}{6}\sum^6_{m=1}k^{-m}}\\
-	&= \frac{1}{36}\brak{z^1+z^2+z^3+z^4+z^5+z^6}\cdot\nonumber \\&\quad\brak{z^{-1}+z^{-2}+z^{-3}+z^{-4}+z^{-5}+z^{-6}}\\
-	\intertext{The coefficient of $z^k$ is the probability $P(k=Z)$}
-	p_Z(0) &= \frac{1}{36}\brak{z^1z^{-1} + z^2z^{-2} + z^3z^{-3} + z^4z^{-4} + z^5z^{-5} + z^6z^{-6}}\\
-	&= \frac{1}{36}(6)\\
+	p_Z(k) &= z\{p_X(k)\}*z\{p_{-Y}(k)\}\\ \intertext{Let $X(z)$ and $Y(-z)$ represent $z\{p_X(k)\}$ and $z\{p_{-Y}(k)\}$ respectively,}
+	&= X(z)\cdot Y(-z)\\
+	&= \brak{\sum^6_{i=1}p_X(i)\cdot z^i}*\brak{\sum^6_{j=1}p_Y(j)\cdot z^{-j}}\\
+	&= \brak{\frac{1}{6}\sum^6_{i=1}z^i}\brak{\frac{1}{6}\sum^6_{j=1}z^{-j}}\\
+	&= \frac{1}{36}\sum^6_{i=1}\sum^1_{j=1}\brak{z^i\cdot z^{-j}}\\
+	&= \frac{1}{36}\sum^6_{i=1}\sum^6_{j=1}z^{i-j}\\
+	\intertext{Here $i$ and $j$ represents outcomes on the dice $X$ and dice $Y$ respectively, so $i-j$ represents the value $k$.}
+	\implies p_Z(k) &= \left. \frac{1}{36}\sum^6_{i=1}\sum^6_{j=1}z^{i-j} \right|_{i-j=k}\\
+	\intertext{Here $i$ and $j$ should satisfy the condition: $i-j = k$}
+	&= \left. \frac{1}{36}\sum^{6,6+k}_{j=1,i=1+k}z^{k}\right|_{i-j=k} \label{eq:z-transform eqn}
+\end{align}
+\begin{enumerate}
+\item[(i)] Finding the probability for $Z = 0$
+\end{enumerate}
+\begin{align}
+	\intertext{From the result $\eqref{eq:z-transform eqn}$}
+	p_Z(0) &= \left. \frac{1}{36}\sum^{6,6}_{j=1,i=1}z^{0}\right|_{i=j}\\
+	\intertext{The coefficient of $z^k (z^0$ here), is the probability $P(Z=0)$}
+	\implies P(Z=0) &= \frac{1}{36}(6)\\
 	&= \frac{1}{6}
 \end{align}
 \begin{enumerate}
@@ -307,5 +317,12 @@ We need to find PMF($Z$) at $Z = 0$
 	&= 1-\frac{1}{6}\\
 	&= \frac{5}{6}
 \end{align}
+\newpage
+\begin{figure}
+\centering
+\includegraphics[width=\columnwidth]{./figs/main_theo.png}
+\caption{Theorectical PMF of Z ($p_Z(k)$)}
+\label{fig:theo_pmf(Z)}
+\end{figure}
 
 \end{document}
