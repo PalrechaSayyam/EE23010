@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2023.8.2)  28 AUG 2023 16:40
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2023.8.2)  30 AUG 2023 02:04
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1215,7 +1215,7 @@ File: omstxr.fd 2000/12/15 v3.1
 LaTeX Font Info:    Font shape `OMS/txr/m/n' in size <12> not available
 (Font)              Font shape `OMS/txsy/m/n' tried instead on input line 239.
 
-Overfull \hbox (40.91924pt too wide) detected at line 274
+Overfull \hbox (45.9792pt too wide) detected at line 274
 []
  []
 
@@ -1223,20 +1223,19 @@ Overfull \hbox (40.91924pt too wide) detected at line 274
 
 
 ]
-<./figs/main.png, id=51, 462.528pt x 346.896pt>
-File: ./figs/main.png Graphic file (type png)
-<use ./figs/main.png>
-Package pdftex.def Info: ./figs/main.png  used on input line 323.
+<./figs/main_act.png, id=51, 462.528pt x 346.896pt>
+File: ./figs/main_act.png Graphic file (type png)
+<use ./figs/main_act.png>
+Package pdftex.def Info: ./figs/main_act.png  used on input line 323.
 (pdftex.def)             Requested size: 252.0pt x 189.00427pt.
- [2 <./figs/main.png>]
-(./q10.13.3.19.aux)
+ [2 <./figs/main_act.png>] (./q10.13.3.19.aux)
 Package rerunfilecheck Info: File `q10.13.3.19.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
  ) 
 Here is how much of TeX's memory you used:
  29216 strings out of 478287
- 575986 string characters out of 5849290
- 864620 words of memory out of 5000000
+ 576014 string characters out of 5849290
+ 866619 words of memory out of 5000000
  46764 multiletter control sequences out of 15000+600000
  547786 words of font info for 200 fonts, out of 8000000 for 9000
  1144 hyphenation exceptions out of 8191
@@ -1249,7 +1248,7 @@ onts/txsy.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/txfonts/txsyc.p
 fb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/share/
 texlive/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/share/texlive/texmf-d
 ist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on q10.13.3.19.pdf (2 pages, 70321 bytes).
+Output written on q10.13.3.19.pdf (2 pages, 70393 bytes).
 PDF statistics:
  110 PDF objects out of 1000 (max. 8388607)
  79 compressed objects within 1 object stream

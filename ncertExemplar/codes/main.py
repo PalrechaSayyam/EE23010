@@ -59,13 +59,13 @@ sim_prob_diff_nos = np.sum(Z_simulated != 0) / num_samples
 print("Actual Probability (Z = 0):", act_prob_same_no)
 print("Simulated Probability (Z = 0):", sim_prob_same_no)
 
-print("Actual Probability (Z ≠ 0):", act_prob_diff_nos)
-print("Simulated Probability (Z ≠ 0):", sim_prob_diff_nos)
-
 if np.isclose(act_prob_same_no, act_prob_same_no):
     print("Hence verified for same number on both dice")
 else:
     print("error")
+
+print("Actual Probability (Z ≠ 0):", act_prob_diff_nos)
+print("Simulated Probability (Z ≠ 0):", sim_prob_diff_nos)
 
 if np.isclose(act_prob_diff_nos, act_prob_diff_nos):
     print("Hence verified for different numbers on both dice")
