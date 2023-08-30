@@ -249,48 +249,16 @@ p_X(k) &=
 	\end{cases}
 \end{align}
 $p_Y(k)$ is same as $p_X(k)$.
-\begin{enumerate}
-\item[1.] Finding the solution using convolution:
-\end{enumerate}
 \begin{align}
-p_Z(k) &= \pr{k = X-Y}\\
-&= \pr{X = k+Y}
-\end{align}
-We arrive at the expectation of $Z$: 
-\begin{align}
-E\brak{p_X(k+Y)} &= \sum^{6}_{m=1}[p_X(k+m)*p_Y(m)]\\
-&= \frac{1}{6}\sum^6_{m=1} p_X(k+m)\\
-&= \frac{1}{6}(p_x(k+1)+p_x(k+2)+p_x(k+3) \nonumber \\ &\quad +p_x(k+4)+p_x(k+5)+p_x(k+6)) \label{eq:Expectation}
-\end{align}
-\begin{enumerate}
-\item[(i)] Finding the probability for $Z = 0$
-\end{enumerate}
-We need to find PMF($Z$) at $Z = 0$
-\begin{align}
-	\intertext{\{From the result \eqref{eq:Expectation}\}}
-	\pr{Z=0} &= \frac{1}{6}\brak{p_x(1)+p_x(2)+p_x(3)+p_x(4)+p_x(5)+p_x(6)}\\
-	&= \frac{1}{6}\brak{\frac{1}{6}+\frac{1}{6}+\frac{1}{6}+\frac{1}{6}+\frac{1}{6}+\frac{1}{6}}\\
-	&= \frac{1}{6}	
-\end{align}
-\begin{enumerate}
-\item[(ii)] Finding the probability for $Z \neq 0$
-\end{enumerate}
-\begin{align}
-	\pr{Z \neq 0} &= 1-\pr{Z=0}\\
-	&= 1-\frac{1}{6}\\
-	&= \frac{5}{6}
-\end{align}
-\begin{enumerate}
-\item[2.] Finding the solution using z-transform:
-\end{enumerate}
-PMF of $Z$ using $z$-transform:
-\begin{align}
+\intertext{PMF of $Z$ using $z$-transform:}
 	\pr{k=Z} &= \pr{k=X-Y}\\
 	\intertext{applying the z-transform on both the sides}
 	z\{\pr{k=Z}\} &= z\{\pr{k=X-Y}\}\\
-	p_Z(k) &= z\{p_X(k)\}*z\{p_{-Y}(k)\}\\ \intertext{Let $X(z)$ and $Y(-z)$ represent $z\{p_X(k)\}$ and $z\{p_{-Y}(k)\}$ respectively,}
+	\intertext{This gives us the z-transform of convolution of sequences}
+	z\{p_Z(k)\} &= z\{p_X(k)*p_{-Y}(k)\}\\
+	\intertext{Let $X(z)$ and $Y(-z)$ represent $z\{p_X(k)\}$ and $z\{p_{-Y}(k)\}$ respectively,}
 	&= X(z)\cdot Y(-z)\\
-	&= \brak{\sum^6_{i=1}p_X(i)\cdot z^i}*\brak{\sum^6_{j=1}p_Y(j)\cdot z^{-j}}\\
+	&= \brak{\sum^6_{i=1}p_X(i)\cdot z^i}\cdot\brak{\sum^6_{j=1}p_Y(j)\cdot z^{-j}}\\
 	&= \brak{\frac{1}{6}\sum^6_{i=1}z^i}\brak{\frac{1}{6}\sum^6_{j=1}z^{-j}}\\
 	&= \frac{1}{36}\sum^6_{i=1}\sum^1_{j=1}\brak{z^i\cdot z^{-j}}\\
 	&= \frac{1}{36}\sum^6_{i=1}\sum^6_{j=1}z^{i-j}\\
