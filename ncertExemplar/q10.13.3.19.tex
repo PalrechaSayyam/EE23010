@@ -13,7 +13,7 @@
 \usepackage{mathtools}
 \usepackage{gensymb}
 \usepackage[breaklinks=true]{hyperref}
-\usepackage{tkz-euclide} % loads  TikZ and tkz-base
+\usepackage{tkz-euclide} % loads  TikW and tkz-base
 \usepackage{listings}
 \usepackage{gvv}
 %
@@ -233,14 +233,10 @@ Let the random variables:
 \end{tabular}
 \end{table}
 \begin{align}
-\intertext{Consider a random variable Z:}
-Z &= X-Y
+\intertext{Consider a random variable W:}
+W &= X-Y
 \end{align}
-$Z$ can take values ranging from \{-5 to 5\}.
-
-We need to find the PMF of $Z$
-
-We know that,
+$W$ can take values ranging from \{-5 to 5\}.
 \begin{align}
 p_X(k) &= 
 	\begin{cases}
@@ -250,47 +246,45 @@ p_X(k) &=
 \end{align}
 $p_Y(k)$ is same as $p_X(k)$.
 \begin{align}
-\intertext{PMF of $Z$ using $z$-transform:}
-	\pr{k=Z} &= \pr{k=X-Y}\\
+\intertext{PMF of $W$ using $z$-transform:}
 	\intertext{applying the z-transform on both the sides}
-	z\{\pr{k=Z}\} &= z\{\pr{k=X-Y}\}\\
-	\intertext{This gives us the z-transform of convolution of sequences}
-	z\{p_Z(k)\} &= z\{p_X(k)*p_{-Y}(k)\}\\
-	\intertext{Let $X(z)$ and $Y(-z)$ represent $z\{p_X(k)\}$ and $z\{p_{-Y}(k)\}$ respectively,}
-	&= X(z)\cdot Y(-z)\\
-	&= \brak{\sum^6_{i=1}p_X(i)\cdot z^i}\cdot\brak{\sum^6_{j=1}p_Y(j)\cdot z^{-j}}\\
-	&= \brak{\frac{1}{6}\sum^6_{i=1}z^i}\brak{\frac{1}{6}\sum^6_{j=1}z^{-j}}\\
-	&= \frac{1}{36}\sum^6_{i=1}\sum^1_{j=1}\brak{z^i\cdot z^{-j}}\\
-	&= \frac{1}{36}\sum^6_{i=1}\sum^6_{j=1}z^{i-j}\\
-	\intertext{Here $i$ and $j$ represents outcomes on the dice $X$ and dice $Y$ respectively, so $i-j$ represents the value $k$.}
-	\implies p_Z(k) &= \left. \frac{1}{36}\sum^6_{i=1}\sum^6_{j=1}z^{i-j} \right|_{i-j=k}\\
-	\intertext{Here $i$ and $j$ should satisfy the condition: $i-j = k$}
-	&= \left. \frac{1}{36}\sum^{6,6+k}_{j=1,i=1+k}z^{k}\right|_{i-j=k} \label{eq:z-transform eqn}
+	z\{W\} &= z\{X-Y\}\\
+	M_W(z) &= M_{X-Y}(z)\\
+	\intertext{Using the expectation operator:}
+	E[z^{-W}] &= E[z^{-X+Y}]\\
+	&= E[z^{-X}]\cdot E[z^{Y}]\\
+	&= \brak{\sum^6_{i=1}p_X(i)\cdot z^{-i}}\cdot\brak{\sum^6_{j=1}p_Y(j)\cdot z^{j}}\\
+	\intertext{Extracting the PMF by considering the defenition of z-transform}
+	M_W(z) &= p_W(0) +p_W(1)z + ... + p_W(k)z^k + ...\\
+	&= \frac{1}{36}\brak{z^{-1}+...+z^{-6}}\cdot\brak{z^{1}+...+z^{6}}\\
+	&= \frac{1}{36}(z^{-5}+2z^{-4}+3z^{-3}+4z^{-2}+5z^{-1}+6\nonumber\\&\qquad+5z^{1}+4z^{2}+3z^{3}+2z^{4}+z^{5})
+\end{align}
+\begin{align}
+	p_W(k) &= \brak{\frac{d^k}{dz^k}M_W(z)}_{z=0}\\
+	&= \frac{1}{36}\brak{\frac{d^k}{dz^k}\brak{z^{-5}+...+z^{5}}}_{z=0} \label{eq:z-transform eqn}
 \end{align}
 \begin{enumerate}
-\item[(i)] Finding the probability for $Z = 0$
+\item[(i)] Finding the probability for $W = 0$
 \end{enumerate}
 \begin{align}
 	\intertext{From the result $\eqref{eq:z-transform eqn}$}
-	p_Z(0) &= \left. \frac{1}{36}\sum^{6,6}_{j=1,i=1}z^{0}\right|_{i=j}\\
-	\intertext{The coefficient of $z^k (z^0$ here), is the probability $P(Z=0)$}
-	\implies \pr{Z=0} &= \frac{1}{36}(6)\\
+	p_W(0) &= \frac{1}{36}\brak{\frac{d^0}{dz^0}\brak{z^{-5}+...+z^{5}}}_{z=0}\\
+	\implies \pr{W=0} &= \frac{1}{36}(6)\\
 	&= \frac{1}{6}
 \end{align}
 \begin{enumerate}
-\item[(ii)] Finding the probability for $Z \neq 0$
+\item[(ii)] Finding the probability for $W \neq 0$
 \end{enumerate}
 \begin{align}
-	\pr{Z \neq 0} &= 1-\pr{Z=0}\\
+	\pr{W \neq 0} &= 1-\pr{W=0}\\
 	&= 1-\frac{1}{6}\\
 	&= \frac{5}{6}
 \end{align}
 \newpage
 \begin{figure}
-\centering
 \includegraphics[width=\columnwidth]{./figs/main_act.png}
-\caption{Theorectical PMF of Z ($p_Z(k)$)}
-\label{fig:theo_pmf(Z)}
+\caption{Theorectical PMF of W ($p_W(k)$)}
+\label{fig:theo_pmf(W)}
 \end{figure}
 
 \end{document}
