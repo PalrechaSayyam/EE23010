@@ -260,8 +260,10 @@ $p_Y(k)$ is same as $p_X(k)$.
 	&= \frac{1}{36}(z^{-5}+2z^{-4}+3z^{-3}+4z^{-2}+5z^{-1}+6\nonumber\\&\qquad+5z^{1}+4z^{2}+3z^{3}+2z^{4}+z^{5})
 \end{align}
 \begin{align}
-	p_W(k) &= \brak{\frac{d^k}{dz^k}M_W(z)}_{z=0}\\
-	&= \frac{1}{36}\brak{\frac{d^k}{dz^k}\brak{z^{-5}+...+z^{5}}}_{z=0} \label{eq:z-transform eqn}
+	p_W(k) &= \brak{\frac{d^{|k|}}{dz^{|k|}}M_W(z)}_{z=0}\\
+	\intertext{defined for all the values of $-5 \leq k\leq 5$}
+	&= \frac{1}{36}\brak{\frac{d^{|k|}}{dz^{|k|}}\brak{z^{-5}+...+z^{5}}}_{z=0} \label{eq:z-transform eqn}
+	\intertext{the above expression extracts the coefficient of $z^k$ for the desired value of $k$ and w.k.t the coefficients of $z^k$ and $z^{-k}$ are the same.}\nonumber
 \end{align}
 \begin{enumerate}
 \item[(i)] Finding the probability for $W = 0$
