@@ -2,11 +2,12 @@ import numpy as np
 import matplotlib.pyplot as plt
 from scipy.stats import bernoulli
 
-#Number of samples is 36, 1 denotes same number on dice and 0 denotes different numbers on dice
-simlen=int(100000)
-
 #Probability of the event of getting same number on both dice, i.e., Z=0 is 1/6
 prob = 1/6
+size = int(1/prob)
+
+#Number of samples is 10^(size-1), 0 denotes same number on dice
+simlen=int(100000)
 
 #Generating sample date using Bernoulli r.v.
 data_bern = bernoulli.rvs(size=simlen,p=prob)
@@ -33,8 +34,12 @@ data_bern = bernoulli.rvs(size=simlen,p=prob)
 
 print("Samples generated:",data_bern)
 
-pmf_X = np.array([1/6, 1/6, 1/6, 1/6, 1/6, 1/6])
-pmf_Y = np.array([1/6, 1/6, 1/6, 1/6, 1/6, 1/6])
+def generate_pmf(size):
+	array = np.full(size, prob)
+	return array
+
+pmf_X = generate_pmf(size)
+pmf_Y = generate_pmf(size)
 pmf_Z = np.convolve(pmf_X, pmf_Y, mode='full')
 
 # Calculate the actual probability of getting the same number on both dice (Z = 0)
@@ -44,8 +49,8 @@ act_prob_diff_nos = 1 - act_prob_same_no
 
 # Simulate the random variables X and Y by rolling two dice
 num_samples = simlen
-X_simulated = np.random.randint(1, 7, num_samples)
-Y_simulated = np.random.randint(1, 7, num_samples)
+X_simulated = np.random.randint(1, size + 1, num_samples)
+Y_simulated = np.random.randint(1, size + 1, num_samples)
 
 # Calculate Z for each pair of X and Y
 Z_simulated = X_simulated - Y_simulated
@@ -72,7 +77,7 @@ if np.isclose(act_prob_diff_nos, act_prob_diff_nos):
 else:
     print("error")
     
-k_values = np.arange(-5, 6)
+k_values = np.arange(-size + 1, size)
 plt.stem(k_values, pmf_Z)
 plt.xlabel("k")
 plt.ylabel("Probability")
@@ -82,7 +87,7 @@ plt.savefig('/home/sayyam/EE23010/ncertExemplar/figs/main_act.png')
 plt.show()
 
 # Plot the simulated PMF of Z
-plt.hist(Z_simulated, bins=np.arange(-5.5, 6.5, 1), density=True, rwidth=0.8, alpha=0.75)
+plt.hist(Z_simulated, bins=np.arange(-size + 0.5, size + 0.5, 1), density=True, rwidth=0.8, alpha=0.75)
 plt.xlabel("Z")
 plt.ylabel("Probability Density")
 plt.title("Simulated PMF of Z")

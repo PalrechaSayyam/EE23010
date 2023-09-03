@@ -242,35 +242,43 @@ p_X(k) &=
 	\begin{cases}
 		\frac{1}{6}, & 1 \leq k \leq 6 \\
 		0, & \text{otherwise}
-	\end{cases}
+	\end{cases}\\
+	p_X(k) &= p_Y(k) 
 \end{align}
-$p_Y(k)$ is same as $p_X(k)$.
+PMF of $W$ using $z$-transform:
+
+applying the z-transform on both the sides
 \begin{align}
-\intertext{PMF of $W$ using $z$-transform:}
-	\intertext{applying the z-transform on both the sides}
 	z\{W\} &= z\{X-Y\}\\
-	M_W(z) &= M_{X-Y}(z)\\
-	\intertext{Using the expectation operator:}
+	M_W(z) &= M_{X-Y}(z)
+\end{align}
+Using the expectation operator:
+\begin{align}
 	E[z^{-W}] &= E[z^{-X+Y}]\\
 	&= E[z^{-X}]\cdot E[z^{Y}]\\
-	&= \brak{\sum^6_{i=1}p_X(i)\cdot z^{-i}}\cdot\brak{\sum^6_{j=1}p_Y(j)\cdot z^{j}}\\
-	\intertext{Extracting the PMF by considering the defenition of z-transform}
+	&= \brak{\sum^6_{i=1}p_X(i)\cdot z^{-i}}\cdot\brak{\sum^6_{j=1}p_Y(j)\cdot z^{j}}
+\end{align}
+Extracting the PMF by considering the defenition of z-transform
+\begin{align}
 	M_W(z) &= p_W(0) +p_W(1)z + ... + p_W(k)z^k + ...\\
 	&= \frac{1}{36}\brak{z^{-1}+...+z^{-6}}\cdot\brak{z^{1}+...+z^{6}}\\
 	&= \frac{1}{36}(z^{-5}+2z^{-4}+3z^{-3}+4z^{-2}+5z^{-1}+6\nonumber\\&\qquad+5z^{1}+4z^{2}+3z^{3}+2z^{4}+z^{5})
 \end{align}
+defined for all the values of $-5 \leq k\leq 5$
 \begin{align}
-	p_W(k) &= \brak{\frac{d^{|k|}}{dz^{|k|}}M_W(z)}_{z=0}\\
-	\intertext{defined for all the values of $-5 \leq k\leq 5$}
-	&= \frac{1}{36}\brak{\frac{d^{|k|}}{dz^{|k|}}\brak{z^{-5}+...+z^{5}}}_{z=0} \label{eq:z-transform eqn}
-	\intertext{the above expression extracts the coefficient of $z^k$ for the desired value of $k$ and w.k.t the coefficients of $z^k$ and $z^{-k}$ are the same.}\nonumber
+	p_W(k) &= \frac{1}{k!}\brak{\frac{d^{|k|}}{dz^{|k|}}M_W(z)}_{z=0}\\
+	&= \frac{1}{36k!}\brak{\frac{d^{|k|}}{dz^{|k|}}\brak{z^{-5}+...+z^{5}}}_{z=0}\\
+	&= \frac{1}{36k!}\brak{\frac{d^{|k|}}{dz^{|k|}}\brak{\sum^5_{m=-5}\brak{6-|m|}z^m}}_{z=0}\\
+	&= \frac{1}{36k!}\brak{6-|k|}\frac{d^{|k|}}{dz^{|k|}}z^k\\
+	&= \frac{1}{36k!}\brak{6-|k|}k!\\
+	&= \frac{1}{36}\brak{6-|k|} \label{eq:z-transform eqn}
 \end{align}
 \begin{enumerate}
 \item[(i)] Finding the probability for $W = 0$
 \end{enumerate}
 \begin{align}
 	\intertext{From the result $\eqref{eq:z-transform eqn}$}
-	p_W(0) &= \frac{1}{36}\brak{\frac{d^0}{dz^0}\brak{z^{-5}+...+z^{5}}}_{z=0}\\
+	p_W(0) &= \frac{1}{36}\brak{6-|0|}\\
 	\implies \pr{W=0} &= \frac{1}{36}(6)\\
 	&= \frac{1}{6}
 \end{align}
