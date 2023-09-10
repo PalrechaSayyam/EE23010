@@ -1,6 +1,6 @@
 \let\negmedspace\undefined
 \let\negthickspace\undefined
-\documentclass[journal,12pt,twocolumn]{IEEEtran}
+\documentclass[journal,12pt,onecolumn]{IEEEtran}
 \usepackage{cite}
 \usepackage{amsmath,amssymb,amsfonts,amsthm}
 \usepackage{algorithmic}
@@ -173,7 +173,7 @@ EE23010 Assignment
 % make the title area
 \maketitle
 
-\newpage
+%\newpage
 
 %\tableofcontents
 
@@ -243,13 +243,16 @@ Prove that
 \end{align}
 But,
 \begin{align}
-	AB(AB^\prime) &= 0\\
-	AB(A^\prime B) &= 0\\
-	AB^\prime (A^\prime B) &= 0
+	AB(AB^\prime) &= 0 \label{eq:pair one} \\
+	AB(A^\prime B) &= 0 \label{eq:pair two} \\
+	AB^\prime (A^\prime B) &= 0 \label{eq:pair three}
 \end{align}
-$AB$, $AB^\prime$ and $A^\prime B$ are mutually exclusive as their pairwise product is zero.
+$\implies AB, AB^\prime, A^\prime B$ are mutually exclusive as their pairwise product is zero.
 \begin{align}
-	&= \pr{AB} + \pr{AB^\prime} + \pr{A^\prime B} -\pr{AB(AB^\prime)} -\pr{AB^\prime(A^\prime B)} -\pr{A^\prime B(AB)} + \pr{(AB)(AB^\prime)(A^\prime B)}\\
+	&= \pr{AB} + \pr{AB^\prime} + \pr{A^\prime B} -\pr{AB(AB^\prime)} -\pr{AB^\prime(A^\prime B)} -\pr{A^\prime B(AB)} + \pr{(AB)(AB^\prime)(A^\prime B)}
+\end{align}
+From $\eqref{eq:pair one}$, $\eqref{eq:pair two}$ and $\eqref{eq:pair three}$, we get:
+\begin{align}
 	&= \pr{AB} + \pr{AB^\prime} + \pr{A^\prime B} - 0 - 0 - 0 + 0\\
 	&= \pr{AB} + \pr{AB^\prime} + \pr{A^\prime B}
 \end{align}
