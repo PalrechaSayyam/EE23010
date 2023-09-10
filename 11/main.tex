@@ -238,9 +238,19 @@ Prove that
 \begin{align}
 	A+B &= A(B+B^\prime) + B(A+A^\prime)\\
 	\pr{A+B} &= \pr{A(B+B^\prime) + B(A+A^\prime)}\\
-	&= \pr{AB+(AB^\prime+BA^\prime)}\\
-	&= \pr{AB} + \pr{AB^\prime+BA^\prime} - \pr{AB(AB^\prime+BA^\prime)}\\
-	&= \pr{AB} + \pr{AB^\prime} + \pr{BA^\prime} +\pr{AB^\prime BA^\prime}\\
+	&= \pr{AB+AB+AB^\prime+BA^\prime}\\
+	&= \pr{AB+AB^\prime+BA^\prime}
+\end{align}
+But,
+\begin{align}
+	AB(AB^\prime) &= 0\\
+	AB(A^\prime B) &= 0\\
+	AB^\prime (A^\prime B) &= 0
+\end{align}
+$AB$, $AB^\prime$ and $A^\prime B$ are mutually exclusive as their pairwise product is zero.
+\begin{align}
+	&= \pr{AB} + \pr{AB^\prime} + \pr{A^\prime B} -\pr{AB(AB^\prime)} -\pr{AB^\prime(A^\prime B)} -\pr{A^\prime B(AB)} + \pr{(AB)(AB^\prime)(A^\prime B)}\\
+	&= \pr{AB} + \pr{AB^\prime} + \pr{A^\prime B} - 0 - 0 - 0 + 0\\
 	&= \pr{AB} + \pr{AB^\prime} + \pr{A^\prime B}
 \end{align}
 \end{enumerate}
