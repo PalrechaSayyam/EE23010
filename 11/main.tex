@@ -1,6 +1,6 @@
 \let\negmedspace\undefined
 \let\negthickspace\undefined
-\documentclass[journal,12pt,onecolumn]{IEEEtran}
+\documentclass[journal,12pt,twocolumn]{IEEEtran}
 \usepackage{cite}
 \usepackage{amsmath,amssymb,amsfonts,amsthm}
 \usepackage{algorithmic}
@@ -216,13 +216,13 @@ Question 12.13.3.11
 
 Prove that
 \begin{enumerate}
-\item[(i)] $\pr{A} = \pr{AB} + \pr{AB^\prime}$
-\item[(ii)]$\pr{A+B} = \pr{AB} + \pr{AB^\prime} + \pr{A^\prime B}$
+\item $\pr{A} = \pr{AB} + \pr{AB^\prime}$
+\item $\pr{A+B} = \pr{AB} + \pr{AB^\prime} + \pr{A^\prime B}$
 \end{enumerate}
 
 \solution
 \begin{enumerate}
-\item[(i)] consider $RHS$:
+\item consider $RHS$:
 \begin{align}
 	A &= A(B + B^\prime)\\
 	\pr{A} &= \pr{A(B+B^\prime)}\\
@@ -231,10 +231,7 @@ Prove that
 	&= \pr{AB} + \pr{AB^\prime} - \pr{ABB^\prime}\\
 	&= \pr{AB} + \pr{AB^\prime} \label{eq:proved1}
 \end{align}
-\end{enumerate}
-
-\begin{enumerate}
-\item[(ii)] consider $RHS$:
+\item consider $RHS$:
 \begin{align}
 	A+B &= A(B+B^\prime) + B(A+A^\prime)\\
 	\pr{A+B} &= \pr{A(B+B^\prime) + B(A+A^\prime)}\\
@@ -248,9 +245,9 @@ But,
 	AB^\prime (A^\prime B) &= 0 \label{eq:pair three}
 \end{align}
 $\implies AB, AB^\prime, A^\prime B$ are mutually exclusive as their pairwise product is zero.
-\begin{align}
-	\pr{A+B} &= \pr{AB} + \pr{AB^\prime} + \pr{A^\prime B} -\pr{AB(AB^\prime)} -\pr{AB^\prime(A^\prime B)} -\pr{A^\prime B(AB)} + \pr{(AB)(AB^\prime)(A^\prime B)}
-\end{align}
+\begin{multline}
+    \pr{A+B} = \pr{AB} + \pr{AB^\prime} + \pr{A^\prime B} -\pr{AB(AB^\prime)} \\- \pr{AB^\prime(A^\prime B)} -\pr{A^\prime B(AB)} + \pr{(AB)(AB^\prime)(A^\prime B)}
+\end{multline}
 From \eqref{eq:pair one}, \eqref{eq:pair two} and \eqref{eq:pair three}, we get:
 \begin{align}
 	&= \pr{AB} + \pr{AB^\prime} + \pr{A^\prime B} - 0 - 0 - 0 + 0\\

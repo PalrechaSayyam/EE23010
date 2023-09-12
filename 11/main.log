@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2023.8.2)  11 SEP 2023 12:31
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2023.8.2)  12 SEP 2023 18:47
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -22,7 +22,6 @@ LaTeX Font Info:    Trying to load font information for OT1+ptm on input line 5
 (/usr/share/texlive/texmf-dist/tex/latex/psnfss/ot1ptm.fd
 File: ot1ptm.fd 2001/06/04 font definitions for OT1/ptm.
 )
-** ATTENTION: Single column mode is not typically used with IEEE publications.
 -- Using 8.5in x 11in (letter) paper.
 -- Using PDF output.
 \@IEEEnormalsizeunitybaselineskip=\dimen141
@@ -1208,22 +1207,37 @@ LaTeX Font Info:    Trying to load font information for TS1+txr on input line 1
 (/usr/share/texlive/texmf-dist/tex/latex/txfonts/ts1txr.fd
 File: ts1txr.fd 2000/12/15 v3.1
 )
-Overfull \hbox (52.5586pt too wide) detected at line 253
+Overfull \hbox (47.70337pt too wide) detected at line 250
+ []$[]   [] [] \OT1/txr/m/n/12 = [] [] + [] [] + [] [] \OMS/txsy/m/n/12 ^^@ [] 
+[]$ 
+ []
+
+
+Overfull \hbox (30.85568pt too wide) detected at line 250
+ []$[] \OMS/txsy/m/n/12 ^^@ [] [] ^^@ [] [] \OT1/txr/m/n/12 + [] []$ []  
+ []
+
+
+Overfull \hbox (2.96579pt too wide) detected at line 255
 []
  []
 
-[1{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}] (./main.aux)
+[1{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}
+
+
+
+] (./main.aux)
 Package rerunfilecheck Info: File `main.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
  ) 
 Here is how much of TeX's memory you used:
- 29140 strings out of 478287
- 574741 string characters out of 5849290
- 846579 words of memory out of 5000000
+ 29144 strings out of 478287
+ 574861 string characters out of 5849290
+ 847587 words of memory out of 5000000
  46719 multiletter control sequences out of 15000+600000
  534888 words of font info for 170 fonts, out of 8000000 for 9000
  1144 hyphenation exceptions out of 8191
- 101i,8n,96p,496b,321s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 101i,9n,96p,496b,325s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/share/texliv
 e/texmf-dist/fonts/type1/public/txfonts/rtxmi.pfb></usr/share/texlive/texmf-dis
 t/fonts/type1/public/txfonts/rtxr.pfb></usr/share/texlive/texmf-dist/fonts/type
@@ -1231,10 +1245,10 @@ t/fonts/type1/public/txfonts/rtxr.pfb></usr/share/texlive/texmf-dist/fonts/type
 onts/txsy.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmb8a.pfb><
 /usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/share/texl
 ive/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on main.pdf (1 page, 42757 bytes).
+Output written on main.pdf (1 page, 42905 bytes).
 PDF statistics:
- 74 PDF objects out of 1000 (max. 8388607)
- 56 compressed objects within 1 object stream
- 18 named destinations out of 1000 (max. 500000)
+ 79 PDF objects out of 1000 (max. 8388607)
+ 61 compressed objects within 1 object stream
+ 22 named destinations out of 1000 (max. 500000)
  13 words of extra memory for PDF output out of 10000 (max. 10000000)
 
