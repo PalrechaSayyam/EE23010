@@ -1,6 +1,6 @@
 \let\negmedspace\undefined
 \let\negthickspace\undefined
-\documentclass[journal,12pt,onecolumn]{IEEEtran}
+\documentclass[journal,12pt,twocolumn]{IEEEtran}
 \usepackage{cite}
 \usepackage{amsmath,amssymb,amsfonts,amsthm}
 \usepackage{algorithmic}
@@ -88,6 +88,8 @@
 \newcommand{\define}{\stackrel{\triangle}{=}}
 \theoremstyle{remark}
 \newtheorem{rem}{Remark}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\Var}{\mathrm{Var}}
 
 %\bibliographystyle{ieeetr}
 \setlength{\parindent}{0pt}
@@ -234,7 +236,20 @@ p_A(k) &=
 		\frac{1}{5}, & 1 \leq k \leq 5 \\
 		0, & \text{otherwise}
 	\end{cases}\\
-p_B(k) &= \sum_{i=1}^5\pr{B=k\left.\right |A=i}\cdot p_A(i)
+p_B(k) &= \sum_{i=1}^5\pr{B=k\left.\right |A=i}\cdot p_A(i)\\
+&= \frac{1}{5}\sum_{i=1}^5\pr{B=k\left.\right |A=i}
+\end{align}
+\begin{align}
+	\pr{B=k\left.\right |A=i} &= 
+	\begin{cases}
+		\frac{1}{4}, & 1 \leq k \leq 5,k\neq i\\
+		0, & \text{otherwise}
+	\end{cases}\\
+	\implies p_B(k) &=
+	\begin{cases}
+		\frac{1}{20}, & 1 \leq k \leq 5,k\neq i\\
+		0, & \text{otherwise}
+	\end{cases}
 \end{align}
 $X$ can take values ranging from 3 to 9.
 \begin{align}
@@ -243,27 +258,32 @@ $X$ can take values ranging from 3 to 9.
 \end{align}
 Finding mean or the expectation:
 \begin{align}
-	E[X] &= \sum_{k=3}^9k\cdot p_X(k)\\
+	\E[X] &= \sum_{k=3}^9k\cdot p_X(k)\\
 	&= \sum_{k=3}^9k\sum_{i=1}^5\pr{X=k\left. \right |A=i}\cdot p_A(i)\\
 	&= \sum_{k=3}^9k\sum_{i=1}^5\pr{B=k-i\left.\right |A=i}\cdot p_A(i)\\
 	&= \sum_{k=3}^9k\cdot p_B(k-i)
 \end{align}
-Using a parameter $t$ to establish a relation between $k$ and $i$.
 \begin{align}
-	&= \frac{1}{5}\cdot\frac{1}{4}\sum_{k=3}^9\sum_{i=1}^5k\left.\brak{\frac{1}{|k-i|!}\frac{d^{|k-i|}}{dt^{|k-i|}}t^{k-i}-t^{k-i}-t^{\frac{k}{2}-i}}\right |_{t=0}\\
-	&= \frac{1}{20}\sum_{k=3}^9\sum_{i=1}^5\left.\brak{\frac{k}{|k-i|!}\frac{d^{|k-i|}}{dt^{|k-i|}}t^{k-i}} \right |_{t=0} - \left.\frac{1}{20}\sum_{k=3}^9\sum_{i=1}^5kt^{k-i}\right |_{t=0} - \left.\frac{1}{20}\sum_{k=3}^9\sum_{i=1}^5kt^{\frac{k}{2}-i}\right |_{t=0}\\ \label{eq:12.13.3.55}
-	&= \frac{1}{20}\sum_{k=3}^9\sum_{i=1}^5\left.\brak{\frac{k}{|k-i|!}\frac{d^{|k-i|}}{dt^{|k-i|}}t^{k-i}} \right |_{t=0} - \frac{(3+4+5)}{20} - \frac{(4+6+8)}{20}\\
-	&= \frac{1}{20}\brak{3(3)+4(4)+5(5)+6(5)+7(4)+8(3)+9(2)} - \frac{12}{20} - \frac{18}{20}\\
-	&= \frac{150}{20} - \frac{30}{20}\\
+	p_B(k-i) &=
+	\begin{cases}
+		\frac{1}{20}, & 1 \leq k-i \leq 5,k-i \neq i\\
+		0, & \text{otherwise}
+	\end{cases}\\
+	&=
+	\begin{cases}
+		\frac{1}{20}, & i+1 \leq k \leq i+5,k \neq 2i\\
+		0, & \text{otherwise}
+	\end{cases}
+\end{align}
+\begin{align}
+	\implies \E[X] &= 3p_B(3-i)+...+9p_B(9-i)\\
+	&= \frac{1}{20}(120)\\
 	&= 6
 \end{align}
 \begin{align}
-	Var(X) &= E[X^2] - (E[X])^2\\
-	&= \sum_{k=3}^9k^2\cdot p_X(k)-\brak{\sum_{k=3}^9k\cdot p_X(k)}^2\\
-	&= \frac{1}{20}\sum_{k=3}^9\sum_{i=1}^5\left.\brak{\frac{k^2}{|k-i|!}\frac{d^{|k-i|}}{dt^{|k-i|}}t^{k-i}} \right |_{t=0} - \left.\frac{1}{20}\sum_{k=3}^9\sum_{i=1}^5k^2t^{k-i}\right |_{t=0} - \left.\frac{1}{20}\sum_{k=3}^9\sum_{i=1}^5k^2t^{\frac{k}{2}-i}\right |_{t=0}-6^2\\
-	&= \frac{1}{20}\brak{3(9)+4(16)+5(25)+5(36)+4(49)+3(64)+2(81)}-\frac{9+16+25}{20}-\frac{16+36+64}{20} - 36\\
-	&= \frac{946}{20}-\frac{50}{20}-\frac{116}{20} - 36\\
-	&= 39-36\\
+	\Var(X) &= \E[X^2] - \brak{\E[X]}^2\\
+	&= 3^2p_B(3-i)+...+9^2p_B(9-i) - 6^2\\
+	&= 39 - 36\\
 	&= 3
 \end{align}
 \end{document}
