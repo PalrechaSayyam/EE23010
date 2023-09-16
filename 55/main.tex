@@ -276,13 +276,12 @@ Finding mean or the expectation:
 	\end{cases}
 \end{align}
 \begin{align}
-	\implies \E[X] &= 3p_B(3-i)+...+9p_B(9-i)\\
-	&= \frac{1}{20}(120)\\
+	\implies \E[X] &= \frac{1}{20}(120)\\
 	&= 6
 \end{align}
 \begin{align}
 	\Var(X) &= \E[X^2] - \brak{\E[X]}^2\\
-	&= 3^2p_B(3-i)+...+9^2p_B(9-i) - 6^2\\
+	&= \sum_{k=3}^9k^2p_B(k-i) - 6^2\\
 	&= 39 - 36\\
 	&= 3
 \end{align}
