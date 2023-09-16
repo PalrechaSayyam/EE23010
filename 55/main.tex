@@ -224,6 +224,8 @@ There are 5 cards numbered 1 to 5, one number on one card. Two cards are drawn a
 	\hline
 	$A$ & number on the first card \\
 	\hline
+	$B$ & number on the second card \\
+	\hline
 \end{tabular}
 \end{table}
 \begin{align}
@@ -232,16 +234,19 @@ p_A(k) &=
 		\frac{1}{5}, & 1 \leq k \leq 5 \\
 		0, & \text{otherwise}
 	\end{cases}\\
+p_B(k) &= \sum_{i=1}^5\pr{B=k\left.\right |A=i}\cdot p_A(i)
 \end{align}
 $X$ can take values ranging from 3 to 9.
 \begin{align}
+	X &= A+B\\
 	p_X(k) &= \sum_{i=1}^5\pr{X=k\left. \right |A=i}\cdot p_A(i)
 \end{align}
-Finding the expectation:
+Finding mean or the expectation:
 \begin{align}
 	E[X] &= \sum_{k=3}^9k\cdot p_X(k)\\
 	&= \sum_{k=3}^9k\sum_{i=1}^5\pr{X=k\left. \right |A=i}\cdot p_A(i)\\
-	&= \frac{1}{5}\sum_{k=3}^9k\sum_{i=1}^5\pr{X=k\left. \right |A=i}
+	&= \sum_{k=3}^9k\sum_{i=1}^5\pr{B=k-i\left.\right |A=i}\cdot p_A(i)\\
+	&= \sum_{k=3}^9k\cdot p_B(k-i)
 \end{align}
 Using a parameter $t$ to establish a relation between $k$ and $i$.
 \begin{align}
