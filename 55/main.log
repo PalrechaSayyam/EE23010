@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2023.8.2)  17 SEP 2023 01:49
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2023.8.2)  18 SEP 2023 01:56
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1206,53 +1206,21 @@ LaTeX Font Info:    Trying to load font information for TS1+txr on input line 1
 
 (/usr/share/texlive/texmf-dist/tex/latex/txfonts/ts1txr.fd
 File: ts1txr.fd 2000/12/15 v3.1
-)
-Overfull \hbox (20.0499pt too wide) detected at line 271
- []$[]  \U/txsyb/m/n/12 E\OT1/txr/m/n/12 [\OML/txmi/m/it/12 X\OT1/txr/m/n/12 ] 
-= [](2\OML/txmi/m/it/12 m \OT1/txr/m/n/12 + 1) [] [] [] \OMS/txsy/m/n/12 ^^A \O
-ML/txmi/m/it/12 p[]\OT1/txr/m/n/12 (\OML/txmi/m/it/12 i\OT1/txr/m/n/12 )$ 
- []
+) [1{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}
 
-
-Overfull \hbox (8.39815pt too wide) detected at line 283
- []$[]   \OT1/txr/m/n/12 = [] [](2\OML/txmi/m/it/12 m \OT1/txr/m/n/12 + 1) []$ 
-
- []
-
-
-Overfull \hbox (6.10756pt too wide) detected at line 283
- []$[]  \OT1/txr/m/n/12 + [] [] 2\OML/txmi/m/it/12 m []$ []  
- []
-
-
-Overfull \hbox (12.89815pt too wide) detected at line 293
- []$[]   \OT1/txr/m/n/12 = [] [](2\OML/txmi/m/it/12 m \OT1/txr/m/n/12 + 1)[] []
-$ 
- []
-
-
-Overfull \hbox (34.73158pt too wide) detected at line 293
- []$[]  \OT1/txr/m/n/12 + [] [](2\OML/txmi/m/it/12 m\OT1/txr/m/n/12 )[] [] \OMS
-/txsy/m/n/12 ^^@ \OT1/txr/m/n/12 6[]$ []  
- []
-
-[1{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}
-
-
-] [2
 
 ] (./main.aux)
 Package rerunfilecheck Info: File `main.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
  ) 
 Here is how much of TeX's memory you used:
- 29172 strings out of 478287
- 575172 string characters out of 5849290
- 863518 words of memory out of 5000000
- 46735 multiletter control sequences out of 15000+600000
+ 29164 strings out of 478287
+ 575073 string characters out of 5849290
+ 845490 words of memory out of 5000000
+ 46734 multiletter control sequences out of 15000+600000
  546410 words of font info for 198 fonts, out of 8000000 for 9000
  1144 hyphenation exceptions out of 8191
- 101i,16n,96p,496b,331s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 101i,16n,96p,496b,325s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/share/texliv
 e/texmf-dist/fonts/type1/public/txfonts/rtxmi.pfb></usr/share/texlive/texmf-dis
 t/fonts/type1/public/txfonts/rtxr.pfb></usr/share/texlive/texmf-dist/fonts/type
@@ -1262,10 +1230,10 @@ fb></usr/share/texlive/texmf-dist/fonts/type1/public/txfonts/txsyc.pfb></usr/sh
 are/texlive/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/share/texlive/tex
 mf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/share/texlive/texmf-dist/fonts/t
 ype1/urw/times/utmri8a.pfb>
-Output written on main.pdf (2 pages, 54670 bytes).
+Output written on main.pdf (1 page, 50861 bytes).
 PDF statistics:
- 95 PDF objects out of 1000 (max. 8388607)
- 72 compressed objects within 1 object stream
- 26 named destinations out of 1000 (max. 500000)
+ 83 PDF objects out of 1000 (max. 8388607)
+ 61 compressed objects within 1 object stream
+ 19 named destinations out of 1000 (max. 500000)
  13 words of extra memory for PDF output out of 10000 (max. 10000000)
 

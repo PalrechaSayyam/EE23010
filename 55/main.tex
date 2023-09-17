@@ -231,69 +231,41 @@ There are 5 cards numbered 1 to 5, one number on one card. Two cards are drawn a
 \end{tabular}
 \end{table}
 \begin{align}
-p_A(k) &= 
+p_A(i) &= 
 	\begin{cases}
-		\frac{1}{5}, & 1 \leq k \leq 5 \\
+		\frac{1}{5}, & 1 \leq i \leq 5 \\
 		0, & \text{otherwise}
 	\end{cases}\\
-p_B(k) &= \sum_{i=1}^5\pr{B=k\left.\right |A=i}\cdot p_A(i)\\
-&= \frac{1}{5}\sum_{i=1}^5\pr{B=k\left.\right |A=i}
-\end{align}
-\begin{align}
-	\pr{B=k\left.\right |A=i} &= 
+p_{AB}(k,i) &= \pr{B=k\left.\right | A=i}p_A(i)\\
+&= 
 	\begin{cases}
-		\frac{1}{4}, & 1 \leq k \leq 5,k\neq i\\
-		0, & \text{otherwise}
-	\end{cases}\\
-	\implies p_B(k) &=
-	\begin{cases}
-		\frac{1}{20}, & 1 \leq k \leq 5,k\neq i\\
+		\frac{1}{20}, & 1 \leq k \leq 5, k\neq i \\
 		0, & \text{otherwise}
 	\end{cases}
 \end{align}
-$X$ can take values ranging from 3 to 9.
+\begin{align}
+	p_B(k) &= \sum_{i=1}^5p_{AB}(k,i)\\
+	&= \sum_{i=-\inf}^{\inf} p_{AB}(k,i)\\
+	&= \sum_{i=1}^5p_{AB}(k,i)\\
+	\implies p_B(k) &=
+	\begin{cases}
+		\frac{1}{5}, & 1 \leq k \leq 5,k\neq i\\
+		0, & \text{otherwise}
+	\end{cases}
+\end{align}
+Since $p_A(k) = p_B(k) $, $A$ and $B$ are identical.
 \begin{align}
 	X &= A+B\\
-	p_X(k) &= \sum_{i=1}^5\pr{X=k\left. \right |A=i}\cdot p_A(i)
-\end{align}
-Finding mean or the expectation:
-\begin{align}
-	\E[X] &= \sum_{k=3}^9k\cdot p_X(k)\\
-	&= \sum_{k=3}^9k\sum_{i=1}^5\pr{X=k\left. \right |A=i}\cdot p_A(i)\\
-	&= \sum_{k=3}^9k\sum_{i=1}^5\pr{B=k-i\left.\right |A=i}\cdot p_A(i)
-\end{align}
-\begin{align}
-	p_X(k) &= p_X(2m+1)+p_X(2m) \quad \forall m \in \{1,2,3,4\} \label{eq:12.13.3.55}
-\end{align}
-Using \eqref{eq:12.13.3.55}, we get:
-\begin{multline}
-	\E[X] = \sum_{m=1}^4(2m+1)\sum_{i=1}^5\pr{B=2m+1-i\left.\right |A=i}\cdot p_A(i)\\\qquad + \sum_{m=2}^42m\sum_{i=1}^5\pr{B=2m-i\left.\right |A=i}\cdot p_A(i)
-\end{multline}
-\begin{multline}
-	= \frac{1}{5}\sum_{m=1}^4(2m+1)\sum_{i=1}^5\pr{B=2m+1-i\left.\right |A=i}\\ + \frac{1}{5}\sum_{m=2}^42m\sum_{i=1}^5\pr{B=m-i\left.\right |A=i}
-\end{multline}
-\begin{multline}
-	= \frac{1}{5}\sum_{m=1}^4(2m+1)\sum_{i=1}^5\left.\frac{1}{4}\right |_{1\leq 2m+1-i\leq 5}\\ + \frac{1}{5}\sum_{m=2}^42m\sum_{i=1}^5\left.\frac{1}{4}\right |_{1\leq 2m-i\leq 5,m\neq i}
-\end{multline}
-\begin{multline}
-	= \frac{1}{20}\sum_{m=1}^4(2m+1)\left.\sum_{i=1}^51\right |_{2m-4\leq i\leq 2m}\\ + \frac{1}{20}\sum_{m=2}^42m\left.\sum_{i=1}^51\right |_{2m-5\leq i\leq 2m-1,m\neq i}
-\end{multline}
-\begin{multline}
-	= \frac{1}{20}\sum_{m=1}^4(2m+1)\brak{\min(5,2m)-\max(1,2m-4)+1}\\ \qquad + \frac{1}{20}\sum_{m=2}^42m\brak{\min(5,2m-1)-\max(1,2m-5)}
-\end{multline}
-\begin{align}
-	\implies\E[X] &= \frac{1}{20}(72) + \frac{1}{20}(48)\\
+	\E[X] &= \E[A+B]\\
+	&= \E[A] + \E[B]\\
+	&= \sum_{i=1}^5ip_A(i) + \sum_{k=1}^5kp_B(k)\\
+	&= 3+3\\
 	&= 6
 \end{align}
 \begin{align}
-	\Var(X) &= \E[X^2] - \brak{\E[X]}^2
-\end{align}
-\begin{multline}
-	= \frac{1}{20}\sum_{m=1}^4(2m+1)^2\brak{\min(5,2m)-\max(1,2m-4)+1}\\ \qquad + \frac{1}{20}\sum_{m=2}^4(2m)^2\brak{\min(5,2m-1)-\max(1,2m-5)} - 6^2
-\end{multline}
-\begin{align}
-	&= \frac{1}{20}(476)+\frac{1}{20}(304) - 36\\
-	&= 39-36\\
+	\Var{X} &= \E[X^2] - \brak{\E[X]}^2\\
+	&= \sum_{i=1}^5i^2p_A(i) + \sum_{k=1}^5k^2p_B(k) - 6^2\\
+	&= 39 - 36\\
 	&= 3
 \end{align}
 %\newpage
