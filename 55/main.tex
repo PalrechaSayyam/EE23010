@@ -236,19 +236,22 @@ p_A(i) &=
 		\frac{1}{5}, & 1 \leq i \leq 5 \\
 		0, & \text{otherwise}
 	\end{cases}\\
-p_{AB}(k,i) &= \pr{B=k\left.\right | A=i}p_A(i)\\
+p_{AB}(i,k) &= \pr{B=k\left.\right | A=i}p_A(i)\\
 &= 
-	\begin{cases}
+	\begin{cases} \label{eq:jointPMF}
 		\frac{1}{20}, & 1 \leq k \leq 5, k\neq i \\
 		0, & \text{otherwise}
 	\end{cases}
 \end{align}
 \begin{align}
-	p_B(k) &= \sum_{i=-\infty}^{\infty} p_{AB}(k,i)\\
-	&= \sum_{i=1}^5p_{AB}(k,i)\\
+	p_B(k) &= \sum_{i=-\infty}^{\infty} p_{AB}(i,k)\\
+	&= \sum_{i=1}^5p_{AB}(i,k)
+\end{align}
+Using the result from \eqref{eq:jointPMF}
+\begin{align}
 	\implies p_B(k) &=
 	\begin{cases}
-		\frac{1}{5}, & 1 \leq k \leq 5,k\neq i\\
+		\frac{1}{5}, & 1 \leq k \leq 5\\
 		0, & \text{otherwise}
 	\end{cases}
 \end{align}
@@ -263,13 +266,15 @@ Since $p_A(k) = p_B(k) $, $A$ and $B$ are identical.
 	&= 6
 \end{align}
 \begin{align}
-	\Var\{X\} &= \E[X^2] - \E[X]^2\\
+	\Var(X) &= \E[X^2] - \E[X]^2\\
 	&= \E[(A+B)^2] - 6^2\\
 	&= \E[A^2+B^2+2AB] - 36\\
 	&= \E[A^2] + \E[B^2] + 2\E[AB] - 36\\
-	&= \E[A^2] + \E[A^2] + 2\sum_{i=1}^5\sum^5_{k=1}ikp_{AB}(k,i) - 36\\
-	&= 2\sum_{i=1}^5i^2p_A(i) + \frac{2}{20}(170) - 36\\
-	&= 22 + 17 - 36\\
+	&= \E[A^2] + \E[A^2] + 2\sum_{i=1}^5\sum^5_{k=1}ikp_{AB}(i,k) - 36
+\end{align}
+Using the result from \eqref{eq:jointPMF}
+\begin{align}
+	\implies \Var(X) &= 2\sum_{i=1}^5i^2p_A(i) + \frac{2}{20}(170) - 36\\
 	&= 3
 \end{align}
 %\newpage
