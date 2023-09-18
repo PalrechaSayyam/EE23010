@@ -257,14 +257,19 @@ Since $p_A(k) = p_B(k) $, $A$ and $B$ are identical.
 	X &= A+B\\
 	\E[X] &= \E[A+B]\\
 	&= \E[A] + \E[B]\\
-	&= \sum_{i=1}^5ip_A(i) + \sum_{k=1}^5kp_B(k)\\
-	&= 3+3\\
+	&= \E[A] + \E[A]\\
+	&= 2\E[A]\\
+	&= 2\sum_{i=1}^5ip_A(i)\\
 	&= 6
 \end{align}
 \begin{align}
-	\Var{X} &= \E[X^2] - \brak{\E[X]}^2\\
-	&= \sum_{i=1}^5i^2p_A(i) + \sum_{k=1}^5k^2p_B(k) - 6^2\\
-	&= 39 - 36\\
+	\Var\{X\} &= \E[X^2] - \E[X]^2\\
+	&= \E[(A+B)^2] - 6^2\\
+	&= \E[A^2+B^2+2AB] - \brak{2\E[A]}^2\\
+	&= \E[A^2] + \E[B^2] + 2\E[AB] - 36\\
+	&= \E[A^2] + \E[A^2] + 2\sum_{i=1}^5\sum^5_{k=1}ikp_{AB}(k,i) - 36\\
+	&= 2\sum_{i=1}^5i^2p_A(i) + \frac{2}{20}(170) - 36\\
+	&= 22 + 17 - 36\\
 	&= 3
 \end{align}
 %\newpage
