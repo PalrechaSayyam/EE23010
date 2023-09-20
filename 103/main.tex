@@ -1,6 +1,7 @@
 \let\negmedspace\undefined
 \let\negthickspace\undefined
 \documentclass[journal,12pt,twocolumn]{IEEEtran}
+\def\inputGnumericTable{}
 \usepackage{cite}
 \usepackage{amsmath,amssymb,amsfonts,amsthm}
 \usepackage{algorithmic}
@@ -17,6 +18,15 @@
 \usepackage{listings}
 \usepackage{gvv}
 %
+ \usepackage{color}                                            %%
+    \usepackage{array}                                            %%
+    \usepackage{longtable}                                        %%
+    \usepackage{calc}                                             %%
+    \usepackage{multirow}                                         %%
+    \usepackage{hhline}                                           %%
+    \usepackage{ifthen}                                           %%
+ %optionally (for landscape tables embedded in another document): %%
+    \usepackage{lscape} 
 %\usepackage{setspace}
 %\usepackage{gensymb}
 %\doublespacing
@@ -214,12 +224,36 @@ EE23010 Assignment
 % creates the second title. It will be ignored for other modes.
 %\IEEEpeerreviewmaketitle
 
-Question 12.13.3.55
+Question 12.13.3.103
 
-If $A$, $B$ and $C$ are three independent events such that $P(A) = P(B) = P(C) =
+If $A$, $B$ and $C$ are three independent events such that $\pr{A} = \pr{B} = \pr{C} =
 p$, then
-$\pr{At least two of A, B, C occur} = 3p^2-2p^2$
+
+P(At least two of $A, B, C$ occur) = $3p^2-2p^3$
 
 \solution
-
+\begin{table}[!ht]
+ 	\input{tables/table.tex}
+	\caption{Random variable declaration}
+	\label{tab:exemplar/12/13/3/103}
+\end{table}
+\begin{align}
+	\pr{X=0} &= \pr{A^\prime B^\prime C^\prime}\\
+	&= \pr{A^\prime}\pr{B^\prime}\pr{C^\prime}\\
+	&= (1-p)^3\\
+	\pr{X=1} &= \pr{AB^\prime C^\prime} + \pr{BC^\prime A^\prime} + \pr{CA^\prime B^\prime}\\
+	&= \pr{A}\pr{B^\prime}\pr{ C^\prime} + \pr{B}\pr{C^\prime}\pr{ A^\prime} + \pr{C}\pr{A^\prime }\pr{B^\prime}\\
+	&= 3p(1-p)^2\\
+	\pr{X=2} &= \pr{A\cdot B\cdot C^\prime} + \pr{B\cdot C\cdot A^\prime} + \pr{C \cdot A\cdot B^\prime}\\
+	&= \pr{A}\pr{B}\pr{C^\prime}+\pr{B}\pr{C}\pr{A^\prime}+\pr{C}\pr{A}\pr{B^\prime}\\
+	&= 3p^2(1-p)\\
+	\pr{X=3} &= \pr{ABC}\\
+	&= \pr{A}\pr{B}\pr{C}\\
+	&= p^3
+\end{align}
+\begin{align}
+	\pr{X \geq 2} &= \pr{X=2} + \pr{X=3}\\
+	&= 3p^2(1-p) + p^3\\
+	&= 3p^2 - 2p^3
+\end{align}
 \end{document}
