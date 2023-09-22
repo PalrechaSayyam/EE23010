@@ -216,6 +216,9 @@ How many times must a man toss a fair coin so that the probability of having at 
 one head is more than 90\% ?
 
 \solution
+\begin{enumerate}
+\item Binomial:
+
 Let, $X_i$ be the sequence of independent Bernoulli random varibles.
 \begin{align}
 \implies X &= \sum_{i=1}^{n}X_i
@@ -246,11 +249,46 @@ F_X(k) &= \sum_{i=0}^{k}p_X(i)\\
 &= \sum_{i=0}^{k}\comb{n}{i}\brak{0.5}^{n-i}\brak{0.5}^i
 \end{align}
 \begin{align}
-\pr{X\geq1} &> 0.9 \\
+\pr{X>0} &> 0.9 \\
 1 - p_{X}(0) &> 0.9\\
 \brak{2}^n &> 10\\
 n&>\log_2(10)\\
 n &> 3.32\\
 \implies n &= 4
 \end{align}
+\item Gaussian:
+
+Let $Y$ be the gaussian variable,
+\begin{align}
+	\mu &= np \\
+	&= \frac{n}{2}\\
+	\sigma^2 &= np(1-p)\\
+	&= \frac{n}{4}
+\end{align}
+Using the normal-distribution of $Y$,
+\begin{align}
+	f_Y(y) &= \frac{1}{\sigma\sqrt{2\pi}}e^{-\frac{(y-\mu)^2}{2\sigma^2}}
+\end{align}
+\begin{align}
+	\pr{Y>0} &= 1 - \pr{Y = 0}\\
+	&= 1 - f_Y(0)\\
+	&= 1 - \frac{1}{\sigma\sqrt{2\pi}}e^{-\frac{(0-\mu)^2}{2\sigma^2}}\\
+	&= 1 - \frac{2}{\sqrt{2\pi n}}e^{-\frac{n}{2}}
+\end{align}
+\begin{align}
+	\pr{Y>0} &> 0.9\\
+	1 - \frac{2}{\sqrt{2\pi n}}e^{-\frac{n}{2}} &> 0.9\\
+	\sqrt{\frac{2}{\pi n}}e^{-\frac{n}{2}} &< 0.1\\
+	\frac{2}{\pi n}e^{-n} &< 0.01\\
+	e^{-n} &< 0.005\pi n\\
+	-n &< \ln{0.0157} + \ln{n}\\
+	n + \ln{n} &> 4.15\\
+	\implies n &= 4
+\end{align}
+\end{enumerate}
+\begin{figure}
+\includegraphics[width=\columnwidth]{./figs/main.png}
+\caption{Binomial PMF of $X$ vs Normal PDF of $Y$}
+\label{fig:gaussian_Y vs binomial_Y}
+\end{figure}
 \end{document}
