@@ -228,32 +228,24 @@ X_i &=
   \begin{cases}
   1, & \text{Heads} \\
   0, &  \text{Tails}
-  \end{cases}
-\end{align}
-\begin{align}
-p_{X}\brak{k}&=
-	\begin{cases}
-		0.5 = p, & k=0\\
-		0.5 = q, & k=1
-	\end{cases}
+  \end{cases}\\
+X \sim \mathrm{Bin}\brak{n, p}
 \end{align} 
 Let, the total number of trials be $n$ and the PMF of getting $k$ heads is given by:
 \begin{align}
-p_X\brak{k} &= \pr{X=k}\\
-&= \comb{n}{k}\brak{p}^k\brak{q}^{n-k}\\
-&= \comb{n}{k}\brak{0.5}^k\brak{0.5}^{n-k}
+p_X\brak{k} &= \comb{n}{k}\brak{0.5}^k\brak{0.5}^{n-k}
 \end{align} 
 The CDF of $X$ is defined as:
 \begin{align}
 F_X(k) &= \sum_{i=0}^{k}p_X(i)\\
 &= \sum_{i=0}^{k}\comb{n}{i}\brak{0.5}^{n-i}\brak{0.5}^i
 \end{align}
+We have
 \begin{align}
-\pr{X>0} &> 0.9 \\
+\pr{X\geq 1} &> 0.9 \\
 1 - p_{X}(0) &> 0.9\\
 \brak{2}^n &> 10\\
 n&>\log_2(10)\\
-n &> 3.32\\
 \implies n &= 4
 \end{align}
 \item Gaussian:
@@ -289,26 +281,29 @@ Since we know that,
 \begin{align}
 	\pr{Z>x} &> 0.9\\
 	Q(x) &> 0.9\\
-	\implies Z &> 1.28 \label{eq:Zscore}
+	x &> Q^{-1}(0.9)\\
+	\implies x &> -1.28 \label{eq:Qscore}
 \end{align}
 From \eqref{eq:Z_score-table}
 \begin{align}
-	\frac{2-n}{\sqrt{n}} &< 1.28\\
-	n + 1.28\sqrt{n} &> 2\\
-	\implies n = 1
+	\frac{2-n}{\sqrt{n}} &< -1.28\\
+	n - 1.28\sqrt{n} &> 2\\
+	\implies n = 5
 \end{align}
-\item With correction
+\item With correction: 0.5 as correction term
 \begin{align}
-	Y &> 0.1\\
-	Z &> \frac{0.1-n}{\sqrt{n}}
+	Y &> 0.5\\
+	Z &> \frac{1-n}{\sqrt{n}}
 \end{align}
-From \eqref{eq:Zscore}
+From \eqref{eq:Qscore}
 \begin{align}
-	\frac{0.1-n}{\sqrt{n}} &> 1.28
+	\frac{1-n}{\sqrt{n}} &> -1.28\\
+	n - 1.28\sqrt{n} &> 1\\
+	\implies n = 4
 \end{align}
 \end{enumerate}
 \end{enumerate}
-\newpage
+%\newpage
 \begin{figure}
 \includegraphics[width=\columnwidth]{./figs/main.png}
 \caption{Binomial PMF of $X$ vs Normal PDF of $Y$}
