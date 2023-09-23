@@ -260,32 +260,55 @@ n &> 3.32\\
 
 Let $Y$ be the gaussian variable,
 \begin{align}
-	\mu &= np \\
-	&= \frac{n}{2}\\
-	\sigma^2 &= np(1-p)\\
-	&= \frac{n}{4}
+	\mu &= np = \frac{n}{2}\\
+	\sigma^2 &= np(1-p) = \frac{n}{4}
 \end{align}
-Using the normal-distribution of $Y$,
+Let
 \begin{align}
-	f_Y(y) &= \frac{1}{\sigma\sqrt{2\pi}}e^{-\frac{(y-\mu)^2}{2\sigma^2}}
+	Z \approx \frac{Y-\mu}{\sigma}
 \end{align}
+Here, $Z$ is a random variable with $\gauss{0}{1}$,
+
+The normal-Distribution of $Z$ is:
 \begin{align}
-	\pr{Y>0} &= 1 - \pr{Y = 0}\\
-	&= 1 - f_Y(0)\\
-	&= 1 - \frac{1}{\sigma\sqrt{2\pi}}e^{-\frac{(0-\mu)^2}{2\sigma^2}}\\
-	&= 1 - \frac{2}{\sqrt{2\pi n}}e^{-\frac{n}{2}}
+	f(x) &= \frac{1}{\sqrt{2\pi}}e^{-\frac{x^2}{2}}
 \end{align}
+The Q-function from the Normal-Distribution
 \begin{align}
-	\pr{Y>0} &> 0.9\\
-	1 - \frac{2}{\sqrt{2\pi n}}e^{-\frac{n}{2}} &> 0.9\\
-	\sqrt{\frac{2}{\pi n}}e^{-\frac{n}{2}} &< 0.1\\
-	\frac{2}{\pi n}e^{-n} &< 0.01\\
-	e^{-n} &< 0.005\pi n\\
-	-n &< \ln{0.0157} + \ln{n}\\
-	n + \ln{n} &> 4.15\\
-	\implies n &= 4
+	Q(x) &= \pr{Z>x}\\
+	&= \int_{x}^{\infty}\frac{1}{\sqrt{2\pi}}e^{-\frac{t^2}{2}}dt
+\end{align}
+\begin{enumerate}
+\item Without correction
+\begin{align}
+	Y &\geq 1\\
+	Z &\geq \frac{1-\mu}{\sigma}\\
+	Z &\geq \frac{2-n}{\sqrt{n}} \label{eq:Z_score-table}
+\end{align}
+Since we know that,
+\begin{align}
+	\pr{Z>x} &> 0.9\\
+	Q(x) &> 0.9\\
+	\implies Z &> 1.28 \label{eq:Zscore}
+\end{align}
+From \eqref{eq:Z_score-table}
+\begin{align}
+	\frac{2-n}{\sqrt{n}} &< 1.28\\
+	n + 1.28\sqrt{n} &> 2\\
+	\implies n = 1
+\end{align}
+\item With correction
+\begin{align}
+	Y &> 0.1\\
+	Z &> \frac{0.1-n}{\sqrt{n}}
+\end{align}
+From \eqref{eq:Zscore}
+\begin{align}
+	\frac{0.1-n}{\sqrt{n}} &> 1.28
 \end{align}
 \end{enumerate}
+\end{enumerate}
+\newpage
 \begin{figure}
 \includegraphics[width=\columnwidth]{./figs/main.png}
 \caption{Binomial PMF of $X$ vs Normal PDF of $Y$}
