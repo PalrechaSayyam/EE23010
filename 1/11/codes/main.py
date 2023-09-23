@@ -24,7 +24,7 @@ prob = 0.9
 # Calculate the Q-inverse (the critical value)
 q_inverse = stats.norm.ppf(1 - prob)
 #The condition for x where Q(x) > 0.9
-condition = f"Q(x) > {prob} for x > {q_inverse}"
+condition = f"Q(x) > {prob} for x < {q_inverse}"
 print(f"Q-inverse for {prob}: {q_inverse}")
 print(f"Condition: {condition}")
 
