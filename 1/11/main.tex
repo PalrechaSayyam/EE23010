@@ -231,7 +231,7 @@ X_i &=
   \end{cases}\\
 X \sim \mathrm{Bin}\brak{n, p}
 \end{align} 
-Let, the total number of trials be $n$ and the PMF of getting $k$ heads is given by:
+The PMF of $X$ is given by:
 \begin{align}
 p_X\brak{k} &= \comb{n}{k}\brak{0.5}^k\brak{0.5}^{n-k}
 \end{align} 
@@ -279,31 +279,30 @@ The Q-function from the Normal-Distribution
 \end{align}
 Since we know that,
 \begin{align}
-	\pr{Z>x} &> 0.9\\
 	Q(x) &> 0.9\\
-	x &> Q^{-1}(0.9)\\
-	\implies x &> -1.28 \label{eq:Qscore}
+	x &< Q^{-1}(0.9)
 \end{align}
 From \eqref{eq:Z_score-table}
 \begin{align}
 	\frac{2-n}{\sqrt{n}} &< -1.28\\
-	n - 1.28\sqrt{n} &> 2\\
+	(n-2)^2 &> (1.28\sqrt{n})^2\\
+	n^2 - 5.6384n + 4 &> 0\\
+	n > 4.86, &\; n < 0.8 \\
 	\implies n = 5
 \end{align}
 \item With correction: 0.5 as correction term
 \begin{align}
 	Y &> 0.5\\
-	Z &> \frac{1-n}{\sqrt{n}}
-\end{align}
-From \eqref{eq:Qscore}
-\begin{align}
-	\frac{1-n}{\sqrt{n}} &> -1.28\\
-	n - 1.28\sqrt{n} &> 1\\
+	Z &> \frac{1-n}{\sqrt{n}}\\
+	\frac{1-n}{\sqrt{n}} &< -1.28\\
+	\brak{n-1}^2 &> (1.28\sqrt{n})^2\\
+	n^2 - 3.6384n + 1 &< 0\\
+	n > 3.38, &\; n < 0.29\\
 	\implies n = 4
 \end{align}
 \end{enumerate}
 \end{enumerate}
-%\newpage
+\newpage
 \begin{figure}
 \includegraphics[width=\columnwidth]{./figs/main.png}
 \caption{Binomial PMF of $X$ vs Normal PDF of $Y$}
