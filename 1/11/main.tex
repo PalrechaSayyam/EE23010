@@ -236,15 +236,18 @@ one head is more than 90\% ?
 \end{table}
 
 \item Gaussian:
-
-The gaussian-distribution of $Y$:
 \begin{align}
-	p_Y\brak{x} &= \frac{1}{\sqrt{2\pi{\sigma}^2}} e^{-\frac{\brak{x-\mu}^2}{2{\sigma}^2}}
+	Y \sim \gauss{\mu}{\sigma^2}
 \end{align}
-The Q-function from the gaussian distribution:
+The CDF of $Y$:
 \begin{align}
-	Q\brak{\frac{x-\mu}{\sigma}} &= 1 - F_Y(x)\\
-	F_Y(x) &= 1 - Q\brak{\frac{x-\mu}{\sigma}}\label{eq:9.3.11}
+	F_Y(y) &= 1 - \pr{Y>y}\\
+	&= 1 - \pr{\frac{Y-\mu}{\sigma}>\frac{y-\mu}{\sigma}}
+\end{align}
+But,
+\begin{align}
+	\frac{Y-\mu}{\sigma} &\sim \gauss{0}{1}\\
+	\implies F_Y(y) &= 1 - Q\brak{\frac{y-\mu}{\sigma}}\label{eq:9.3.11}
 \end{align}
 \begin{enumerate}
 \item Without correction
