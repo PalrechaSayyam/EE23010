@@ -34,4 +34,3 @@ print("Theoretical Mean:", theoretical_mean)
 print("Simulated Mean:", simulated_mean)
 print("Theoretical Variance:", theoretical_variance)
 print("Simulated Variance:", simulated_variance)
-
