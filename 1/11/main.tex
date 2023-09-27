@@ -262,9 +262,9 @@ From the result \eqref{eq:9.3.11}
 \end{align}
 Squaring on both the sides
 \begin{align}
-	(n-2)^2 &> (1.28\sqrt{n})^2\\
-	n^2 - 5.6384n + 4 &> 0\\
-	 n > 4.86, &\; n < 0.8 \\
+	\implies (n-2)^2 &> (1.28\sqrt{n})^2\\
+	\implies n^2 - 5.6384n + 4 &> 0\\
+	\implies n > 4.86, &\; n < 0.8 \\
 	\implies n = 5
 \end{align}
 \item With correction: 0.5 as correction term
@@ -279,30 +279,16 @@ From the result \eqref{eq:9.3.11}
 \end{align}
 Squaring on both the sides
 \begin{align}
-	\brak{n-1}^2 &> (1.28\sqrt{n})^2\\
-	n^2 - 3.6384n + 1 &> 0\\
-	 n > 3.38, &\; n < 0.29\\
+	\implies \brak{n-1}^2 &> (1.28\sqrt{n})^2\\
+	\implies n^2 - 3.6384n + 1 &> 0\\
+	\implies n > 3.38, &\; n < 0.29\\
 	\implies n = 4
 \end{align}
 \end{enumerate}
 \item Binomial:
 \begin{align}
-	X \sim \mathrm{Bin}\brak{n, p}
-\end{align} 
-The PMF of $X$ is given by:
-\begin{align}
-p_X\brak{k} &= \comb{n}{k}\brak{0.5}^k\brak{0.5}^{n-k}
-\end{align} 
-The CDF of $X$ is defined as:
-\begin{align}
-F_X(k) &= \sum_{i=0}^{k}p_X(i)\\
-&= \sum_{i=0}^{k}\comb{n}{i}\brak{0.5}^{n-i}\brak{0.5}^i
-\end{align}
-We have
-\begin{align}
+X &\sim \mathrm{Bin}(n,p)\\
 \pr{X\geq 1} &> 0.9 \\
-1 - p_{X}(0) &> 0.9\\
-n&>\log_2(10)\\
 \implies n &= 4
 \end{align}
 \end{enumerate}
