@@ -88,6 +88,8 @@
 \newcommand{\define}{\stackrel{\triangle}{=}}
 \theoremstyle{remark}
 \newtheorem{rem}{Remark}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\Var}{\mathrm{Var}}
 
 %\bibliographystyle{ieeetr}
 \setlength{\parindent}{0pt}
@@ -226,6 +228,20 @@ Then the valaue of $X$ is?
 
 \solution
 
+The mean of $X$
 \begin{align}
+	\mu_X &= \int^{-\infty}_{\infty}xf(x)dx \\
+	&= \frac{1}{2\sqrt{3}}\int^{\sqrt{3}}_{-\sqrt{3}}xdx\\
+	&= 0 \label{eq:gate62}
+\end{align}
+The variance of $X$
+\begin{align}
+	\sigma_X^2 &= \int^{-\infty}_{\infty}\brak{x-\mu_X}^2f(x)dx
+\end{align}
+From \eqref{eq:gate62}
+\begin{align}
+	\sigma_X^2 &= \frac{1}{2\sqrt{3}}\int^{\sqrt{3}}_{-\sqrt{3}}x^2dx\\
+	&= \frac{1}{2\sqrt{3}}\brak{\frac{6\sqrt{3}}{3}}\\
+	&= 1
 \end{align}
 \end{document}
