@@ -219,7 +219,7 @@ Question 62
 
 Let $X$ be a random variable with the probability density function $f(x)$ such that
 \begin{align}
-p_X(x) &= 
+f(x) &= 
 	\begin{cases}
 		\frac{1}{2\sqrt{3}}, & -\sqrt{3} \leq x \leq \sqrt{3} \\
 		0, & \text{otherwise}
@@ -231,13 +231,13 @@ Then the valaue of $X$ is?
 
 The mean of $X$
 \begin{align}
-	\mu_X &= \int^{-\infty}_{\infty}xf(x)dx \\
+	\mu_X &= \int^{\infty}_{-\infty}xf(x)dx \\
 	&= \frac{1}{2\sqrt{3}}\int^{\sqrt{3}}_{-\sqrt{3}}xdx\\
 	&= 0 \label{eq:gate62}
 \end{align}
 The variance of $X$ is:
 \begin{align}
-	\sigma_X^2 &= \int^{-\infty}_{\infty}\brak{x-\mu_X}^2f(x)dx
+	\sigma_X^2 &= \int^{\infty}_{-\infty}\brak{x-\mu_X}^2f(x)dx
 \end{align}
 From \eqref{eq:gate62}
 \begin{align}
