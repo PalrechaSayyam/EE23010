@@ -11,11 +11,26 @@ void uniform(char *str, int len){
 	fp = fopen(str,"w");
 	
 	for (i = 0; i < len; i++){
-		//Generating the given distribution from the uniform distribution(0,1)
-		fprintf(fp,"%lf\n",-sqrt(3)+2*sqrt(3)*(double)rand()/RAND_MAX);
+		//Generating the standard uniform distribution
+		fprintf(fp,"%lf\n",(double)rand()/RAND_MAX);
 	}
 	
 	fclose(fp);
+}
+
+double desiredDist(char *str, char *req, double *r){
+	FILE *fp;
+	FILE *dp;
+	fp = fopen(str,"r");
+	dp = fopen(req,"w");
+	double x = 0.0;
+	
+	while(fscanf(fp,"%lf",&x)!=EOF){
+		//generating desired distribution
+		fprintf(dp,"%lf\n",(r[1]-r[0])*x + r[0]);
+	}
+	fclose(fp);
+	fclose(dp);
 }
 
 double mean(char *str){
@@ -53,11 +68,14 @@ double var(char *str){
 }
 
 int main(void){
+	
+	double range[2] = {-sqrt(3),sqrt(3)};
 
 	uniform("uni.dat", 1000000);
+	desiredDist("uni.dat","des_dist.dat",range);
 	
-	//Variance of the given uniform distribution
-	printf("%lf\n",var("uni.dat"));
+	//Variance of the desired distribution
+	printf("%lf\n",var("des_dist.dat"));
 	
 	return 0;
 	
