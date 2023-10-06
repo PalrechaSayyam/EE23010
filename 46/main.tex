@@ -288,7 +288,7 @@ Steps for the simulation of r.v $X$:
 	\item Find $\pr{X=0}$ from the PDF of $X$.
 	\item For this simulation, the remaining numbers in [-1,1) have probability of $1 - \pr{X=0}$.
 	\item Generate random sample in $[-1,1) - \{0\}$ of the size = num\_sim$\times(1 - \pr{X=0})$.
-	\item Generate sample conatining zeros with size num\_sim$\times\pr{X=0}$.
+	\item Generate sample conatining only zeros of the size = num\_sim$\times\pr{X=0}$.
 	\item Combine all the generated samples to make a single sample and we generate the required r.v $X$.
 \end{enumerate}
 \newpage
