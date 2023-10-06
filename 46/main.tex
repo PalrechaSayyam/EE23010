@@ -280,9 +280,16 @@ Which one of the following statements is true?
     	\end{align}
     	$\therefore \brak{D}$ is not true.
 \end{enumerate}
-Steps for the Simulation of $X$:
+Steps for the simulation of r.v $X$:
 \begin{enumerate}
-	\item 
+	\item Identify the point of discontinuity (0 here).
+	\item Define the simulation size for the simulation data set (num\_sim).
+	\item Define the functions of CDF and PDF of $X$.
+	\item Find $\pr{X=0}$ from the PDF of $X$.
+	\item For this simulation, the remaining numbers in [-1,1) have probability of $1 - \pr{X=0}$.
+	\item Generate random sample in $[-1,1) - \{0\}$ of the size = num\_sim$\times(1 - \pr{X=0})$.
+	\item Generate sample conatining zeros with size num\_sim$\times\pr{X=0}$.
+	\item Combine all the generated samples to make a single sample and we generate the required r.v $X$.
 \end{enumerate}
 \newpage
 \begin{figure}
