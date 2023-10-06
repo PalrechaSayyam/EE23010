@@ -1,5 +1,4 @@
 import numpy as np
-import random 
 
 def pdf(u):
     if u < -1:
@@ -13,38 +12,35 @@ def pdf(u):
     elif u >= 1:
         return 0
 
-num_sim = 100000
+num_sim = 1000000
 
-samples = np.random.choice([np.random.uniform(-1,1),np.random.uniform(-1,1)], size=num_sim)
-total = np.array([pdf(t) for t in samples])
+prob_zero = pdf(0)
 
-X = np.random.choice([np.random.uniform(-2,-1),np.random.uniform(1,2)], size=num_sim)
+prob_rem = 1 - prob_zero
 
-for i, value in enumerate(total):
-    if value == 1/4:
-        x_value = np.random.choice([np.random.uniform(-1,0),np.random.uniform(0,1)], size=1)
-        
-        while x_value == 0:
-            x_value = np.random.choice([np.random.uniform(-1,0),np.random.uniform(0,1)], size=1)
-            
-        X[i] = x_value
-        
-    elif value == 1/2:
-        X[i] = 0
+# Generate random values strictly between -1 and 1, excluding 0
+sample_one = np.random.uniform(-1, 0, size=int(num_sim * prob_rem/2))
+sample_two = np.random.uniform(0, 1, size=int(num_sim * prob_rem/2))
+sample = np.concatenate((sample_one, sample_two))
 
-n = 100000
+zeros = np.zeros(int(num_sim * prob_zero))
+
+X = np.concatenate((sample, zeros))
+np.random.shuffle(X)
+
+n = 1000000
 
 lb = -1/2 - 1/n
 ub = 1/n
 
 desired = X[(X > lb) & (X < ub)]
 
-prob = len(desired)/len(X)
+sim_prob = len(desired)/len(X)
+act_prob = 5/8
 
-if abs(prob - 5/8) < 0.001:
+if abs(sim_prob - act_prob) <= 0.001:
     print("Statement (B) is true.")
 else:
     print("Statement (B) is not true.")
 
-print(f"Calculated probability: {prob}")
-
+print(f"Calculated probability: {sim_prob}")
