@@ -241,27 +241,21 @@ Which one of the following statements is true?
 \solution
 \begin{enumerate}[label=(\Alph*)]
     \item \begin{multline} 
-    		\lim_{n \to \infty} \pr{-\frac{1}{2} + \frac{1}{n} < X < -\frac{1}{n}} = \lim_{n \to \infty}F_X\brak{-\frac{1}{n}}  \\ -\lim_{n \to \infty}F_X\brak{-\frac{1}{2} + \frac{1}{n}} - \lim_{n \to \infty}\pr{X=-\frac{1}{n}}
+    		\lim_{n \to \infty} \pr{-\frac{1}{2} + \frac{1}{n} < X < -\frac{1}{n}} \\= \lim_{n \to \infty}F_X\brak{-\frac{1}{n}}-\lim_{n \to \infty}F_X\brak{-\frac{1}{2} + \frac{1}{n}}
 	\end{multline}
-    	\begin{multline}
-    		= \lim_{n \to \infty}F_X\brak{-\frac{1}{n}} - \lim_{n \to \infty}F_X\brak{-\frac{1}{2} + \frac{1}{n}}  \\ -\lim_{n \to \infty}F_X\brak{-\frac{1}{n}} + \lim_{n \to \infty}F_X\brak{-\frac{1}{n}^-}
-	\end{multline}
-    	\begin{align}
-    		&= \lim_{n \to \infty} F_X\brak{-\frac{1}{n}^-} - \lim_{n \to \infty}F_X\brak{-\frac{1}{2} + \frac{1}{n}}\\
-    	&= \lim_{n \to \infty}\frac{1}{4}\brak{-\frac{1}{n}^-+1}-\lim_{n \to \infty}\frac{1}{4}\brak{-\frac{1}{2} + \frac{1}{n}+1}\\
+	\begin{align}
+    		&= \lim_{n \to \infty}F_X\brak{-\frac{1}{n}} - \lim_{n \to \infty}F_X\brak{-\frac{1}{2} + \frac{1}{n}}\\
+    	&= \lim_{n \to \infty}\frac{1}{4}\brak{-\frac{1}{n}+1}-\lim_{n \to \infty}\frac{1}{4}\brak{-\frac{1}{2} + \frac{1}{n}+1}\\
     	&= \frac{1}{8}
     	\end{align}
     	$\therefore \brak{A}$ is not true.
     	
     \item \begin{multline} 
-    		\lim_{n \to \infty} \pr{-\frac{1}{2} - \frac{1}{n} < X < \frac{1}{n}} = \lim_{n \to \infty}F_X\brak{\frac{1}{n}}  \\ -\lim_{n \to \infty}F_X\brak{-\frac{1}{2} - \frac{1}{n}} - \lim_{n \to \infty}\pr{X=\frac{1}{n}}
-	\end{multline}
-	\begin{multline}
-    		= \lim_{n \to \infty}F_X\brak{\frac{1}{n}} - \lim_{n \to \infty}F_X\brak{-\frac{1}{2} - \frac{1}{n}}  \\ -\lim_{n \to \infty}F_X\brak{\frac{1}{n}} + \lim_{n \to \infty}F_X\brak{\frac{1}{n}^-}
+    		\lim_{n \to \infty} \pr{-\frac{1}{2} - \frac{1}{n} < X < \frac{1}{n}} \\= \lim_{n \to \infty}F_X\brak{\frac{1}{n}} -\lim_{n \to \infty}F_X\brak{-\frac{1}{2} - \frac{1}{n}}
 	\end{multline}
 	\begin{align}
-    		&= \lim_{n \to \infty} F_X\brak{\frac{1}{n}^-} - \lim_{n \to \infty}F_X\brak{-\frac{1}{2} - \frac{1}{n}}\\
-    	&= \lim_{n \to \infty}\frac{1}{4}\brak{\frac{1}{n}^-+3}-\lim_{n \to \infty}\frac{1}{4}\brak{-\frac{1}{2} - \frac{1}{n}+1}\\
+    		&= \lim_{n \to \infty} F_X\brak{\frac{1}{n}} - \lim_{n \to \infty}F_X\brak{-\frac{1}{2} - \frac{1}{n}}\\
+    	&= \lim_{n \to \infty}\frac{1}{4}\brak{\frac{1}{n}+3}-\lim_{n \to \infty}\frac{1}{4}\brak{-\frac{1}{2} - \frac{1}{n}+1}\\
     	&= \frac{5}{8}
     	\end{align}
     	$\therefore \brak{B}$ is true.

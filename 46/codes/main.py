@@ -23,7 +23,7 @@ def pdf(u):
     elif u >= 1:
         return 0
 
-num_sim = 10000
+num_sim = 2000
 
 prob_zero = pdf(0)
 
@@ -39,7 +39,7 @@ zeros = np.zeros(int(num_sim * prob_zero))
 X = np.concatenate((sample, zeros))
 np.random.shuffle(X)
 
-n = 1000000
+n = 100000000
 
 lb = -1/2 - 1/n
 ub = 1/n
@@ -62,19 +62,13 @@ theo_cdf = [cdf(x) for x in x_values]
 sorted_X = np.sort(X)
 sim_cdf = np.arange(1, num_sim+1) / num_sim
 
-fig, (ax1, ax2) = plt.subplots(2, 1, figsize=(8, 10))
+plt.plot(sorted_X, sim_cdf, label='Simulated CDF', marker='o', linestyle='-', markersize=3)
+plt.plot(x_values, theo_cdf, label='Theoretical CDF', linestyle='--')
 
-ax1.plot(sorted_X, sim_cdf, label='Simulated CDF')
-ax1.set_xlabel('X')
-ax1.set_ylabel('CDF')
-ax1.set_title('Simulated CDF')
-ax1.legend()
-
-ax2.plot(x_values, theo_cdf, label='Theoretical CDF', linestyle='--')
-ax2.set_xlabel('X')
-ax2.set_ylabel('CDF')
-ax2.set_title('Theoretical CDF')
-ax2.legend()
-plt.tight_layout()
+plt.legend()
+plt.xlabel('X')
+plt.ylabel('CDF')
+plt.title('Simulated vs Theoretical CDF')
 plt.savefig('../figs/main.png')
+plt.grid(True)
 plt.show()
