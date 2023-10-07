@@ -62,11 +62,19 @@ theo_cdf = [cdf(x) for x in x_values]
 sorted_X = np.sort(X)
 sim_cdf = np.arange(1, num_sim+1) / num_sim
 
-plt.plot(sorted_X, sim_cdf, label='Simulated CDF')
-plt.plot(x_values, theo_cdf, label='Theoretical CDF', linestyle='--')
-plt.legend()
-plt.xlabel('X')
-plt.ylabel('CDF')
-plt.title('Simulated vs Theoretical CDF')
+fig, (ax1, ax2) = plt.subplots(2, 1, figsize=(8, 10))
+
+ax1.plot(sorted_X, sim_cdf, label='Simulated CDF')
+ax1.set_xlabel('X')
+ax1.set_ylabel('CDF')
+ax1.set_title('Simulated CDF')
+ax1.legend()
+
+ax2.plot(x_values, theo_cdf, label='Theoretical CDF', linestyle='--')
+ax2.set_xlabel('X')
+ax2.set_ylabel('CDF')
+ax2.set_title('Theoretical CDF')
+ax2.legend()
+plt.tight_layout()
 plt.savefig('../figs/main.png')
-#plt.show()
+plt.show()
