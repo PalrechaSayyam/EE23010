@@ -239,6 +239,17 @@ Which one of the following statements is true?
 \hfill(GATE ST 2023)
 
 \solution
+\begin{align}
+	f_X(x) &= 
+		\begin{cases}
+			0 & \text{if $x < -1$}\\
+			\frac{1}{4} & \text{if $-1 \leq x < 0$}\\
+			\frac{1}{2} & \text{if $x = 0$}\\
+			\frac{1}{4} & \text{if $0 < x < 1$}\\
+			0 & \text{if $ x \geq 1$}\\
+		\end{cases} \label{eq:pdf_X}
+\end{align}
+
 \begin{enumerate}[label=(\Alph*)]
     \item \begin{multline} 
     		\lim_{n \to \infty} \pr{-\frac{1}{2} + \frac{1}{n} < X < -\frac{1}{n}} \\= \lim_{n \to \infty}F_X\brak{-\frac{1}{n}}-\lim_{n \to \infty}F_X\brak{-\frac{1}{2} + \frac{1}{n}}
@@ -260,17 +271,15 @@ Which one of the following statements is true?
     	\end{align}
     	$\therefore \brak{B}$ is true.
     	
-    \item \begin{align}
-    		\lim_{n \to \infty} \pr{X = \frac{1}{n}} &= \lim_{n \to \infty}F_X\brak{\frac{1}{n}} - \lim_{n \to \infty}F_X\brak{\frac{1}{n}^-}\\
-    		&= \lim_{n \to \infty}\frac{1}{4}\brak{\frac{1}{n}+3} - \lim_{n \to \infty}\frac{1}{4}\brak{\frac{1}{n}^-+3}\\
-    		&= 0
+    \item From \eqref{eq:pdf_X}
+    \begin{align}
+    		\lim_{n \to \infty} \pr{X = \frac{1}{n}} &= 0
     	\end{align}
     	$\therefore \brak{C}$ is not true.
     	
-    	\item \begin{align}
-    		\pr{X = 0} &= F_X\brak{0} - F_X\brak{0^-}\\
-    		&= \frac{1}{4}\brak{0+3} - \frac{1}{4}\brak{0^-+1}\\
-    		&= \frac{1}{2}
+    	\item From \eqref{eq:pdf_X}
+    	\begin{align}
+    		\pr{X = 0} &= \frac{1}{2}
     	\end{align}
     	$\therefore \brak{D}$ is not true.
 \end{enumerate}
