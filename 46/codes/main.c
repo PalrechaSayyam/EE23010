@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <math.h>
+#include <time.h>
 
 void uniform(char *str, int len);
 void desiredDist(char *input_file, char *output_file, double *range, int length);
@@ -32,7 +33,7 @@ void desiredDist(char *str, char *req, double *r, int length) {
 
     while (fscanf(fp, "%lf", &x) != EOF) {
     
-    	if(count>=0.0 && count<(int)(length*(1-p)/2)){
+    	if(count>=0 && count<(int)(length*(1-p)/2)){
     		result = (double)(x+r[0]);
     	}else if(count>= (int)(length*(1-p)/2) && count<(int)(length*(1+p)/2)){
 		result = (double)(r[1]);
@@ -70,12 +71,50 @@ double desired_prob(char *req, double lower, double upper){
 	return prob;
 }
 
+void shuffle(char* req, int n) {
+
+    FILE *dp = fopen(req, "r");
+    double *numbers = (double *)malloc(n * sizeof(double));
+    
+    if (numbers == NULL) {
+        perror("Memory allocation error");
+    }
+
+    int i = 0;
+    while (fscanf(dp, "%lf", &numbers[i]) != EOF && i < n) {
+        i++;
+    }
+    fclose(dp);
+    
+    srand(time(NULL));
+    i = 0;
+    int j;
+    double temp;
+
+    for (i = n - 1; i > 0; i--) {
+        j = rand() % (i + 1);
+        temp = numbers[i];
+        numbers[i] = numbers[j];
+        numbers[j] = temp;
+    }
+    dp = fopen(req, "w");
+
+    for (i = 0; i < n; i++) {
+        fprintf(dp, "%lf\n", numbers[i]);
+    }
+
+    fclose(dp);
+    free(numbers);
+}
+
 int main(void) {
     int len = 100000;
     double range[3] = {-1.0, 0.0, 1.0};
 
     uniform("uni.dat", len);
     desiredDist("uni.dat", "des_dist.dat", range, len);
+
+    shuffle("des_dist.dat", len);
     
     double n = 1000000.0;
     double lb = (double)(-1/2 - 1/n);
