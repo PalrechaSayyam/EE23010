@@ -11,21 +11,26 @@ def cdf(x):
     elif x >= 1:
         return 1
 
+def dirac_delta(x):
+	a = 0
+	if x == a:
+		return 1
+	else: 
+		return 0
+
 def pdf(u):
     if u < -1:
         return 0
     elif u >= -1 and u < 0:
         return 1/4
-    elif u == 0:
-        return 1/2
-    elif u > 0 and u < 1:
-        return 1/4
+    elif u >= 0 and u < 1:
+        return 1/4 + 1/2*dirac_delta(u)
     elif u >= 1:
         return 0
 
-num_sim = 2000
+num_sim = 2500
 
-prob_zero = pdf(0)
+prob_zero = 1/2*dirac_delta(0)
 
 prob_rem = 1 - prob_zero
 
