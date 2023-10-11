@@ -11,39 +11,16 @@ def cdf(x):
     elif x >= 1:
         return 1
 
-def dirac_delta(x):
-	a = 0
-	if x == a:
-		return 1
-	else: 
-		return 0
+# Open the file in read mode
+with open("des_dist.dat", "r") as file:
+    # Read the lines from the file
+    lines = file.readlines()
 
-def pdf(u):
-    if u < -1:
-        return 0
-    elif u >= -1 and u < 0:
-        return 1/4
-    elif u >= 0 and u < 1:
-        return 1/4 + 1/2*dirac_delta(u)
-    elif u >= 1:
-        return 0
+# Process the lines as needed
+X = [float(line.strip()) for line in lines]
+X = np.array(X)
 
-num_sim = 2500
-
-prob_zero = 1/2*dirac_delta(0)
-
-prob_rem = 1 - prob_zero
-
-# Generate random values strictly between -1 and 1, excluding 0
-sample_one = np.random.uniform(-1, 0, size=int(num_sim * prob_rem/2))
-sample_two = np.random.uniform(0, 1, size=int(num_sim * prob_rem/2))
-sample = np.concatenate((sample_one, sample_two))
-
-zeros = np.zeros(int(num_sim * prob_zero))
-
-X = np.concatenate((sample, zeros))
-np.random.shuffle(X)
-
+num_sim = len(X)
 n = 100000000
 
 lb = -1/2 - 1/n
@@ -61,7 +38,7 @@ else:
 
 print(f"Calculated probability: {sim_prob}")
 
-x_values = np.linspace(-1, 1, 1000)
+x_values = np.linspace(-1, 1, num_sim)
 
 theo_cdf = [cdf(x) for x in x_values]
 sorted_X = np.sort(X)
