@@ -3,17 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='components/front.css') }}">
     <title>Custom Audio Player</title>
-    <link rel="stylesheet" type="text/css" href="../components/front.css">
 </head>
 <body>
     <div class="audio-player">
         <h2>Title of the Track</h2>
         <p>Artist Name</p>
         <audio controls>
-        <source src="data:audio/mpeg;base64,{{ base64_audio_data }}" type="audio/mpeg">
- Your browser does not support the audio element.
+            <source src="data:audio/mpeg;base64,{{ base64_audio_data }}" type="audio/mpeg">
         </audio>
     </div>
+    <button id="random-audio-button">Play Random Audio</button>
 </body>
 </html>

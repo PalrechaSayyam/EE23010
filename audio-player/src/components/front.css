@@ -1,3 +1,8 @@
+.audio-player {
+    text-align: center;
+    padding: 20px;
+}
+
 /* Style the audio controls */
 audio {
     width: 100%;
@@ -8,12 +13,6 @@ audio {
     padding: 10px;
 }
 
-/* Style the progress bar */
-audio::-webkit-media-controls-timeline {
-    background-color: #007BFF;
-}
-
-/* Style the volume control */
-audio::-webkit-media-controls-volume-slider {
-    background-color: #007BFF;
+body {
+    background-color: brown;
 }

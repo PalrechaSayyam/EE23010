@@ -3,7 +3,7 @@ import random
 import os
 import base64
 
-app = Flask(__name__, template_folder='/storage/self/primary/Download/EE23010/audio-player/src', static_folder='/storage/self/primary/Download/EE23010/audio-player')
+app = Flask(__name__, template_folder='/storage/self/primary/Download/EE23010/audio-player/src',static_folder='/storage/self/primary/Download/EE23010/audio-player/src')
 
 audio_directory = '/storage/self/primary/Download/EE23010/audio-player/audio'
 
@@ -15,7 +15,7 @@ def play_random():
     random_file = audio_files[indices[0]]
     with open(os.path.join(audio_directory, random_file), 'rb') as audio_file:
         base_data = base64.b64encode(audio_file.read()).decode('utf-8')
-    return render_template('pages/front.html',base64_audio_data=base_data)
+        return render_template('pages/front.html',base64_audio_data=base_data)
 
 @app.route('/audio/<filename>')
 def serve_audio(filename):
