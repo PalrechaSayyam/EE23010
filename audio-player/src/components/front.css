@@ -1,18 +1,65 @@
+body {
+    background-color: #333; /* Dark background color */
+}
+/* Style the audio player container */
 .audio-player {
-    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
     padding: 20px;
+    margin: 20px auto;
+    width: 80%;
 }
 
-/* Style the audio controls */
+Style the audio player title */
+.audio-player h2 {
+    color: #333;
+    font-size: 24px;
+}
+
+/* Style the audio player artist name */
+.audio-player p {
+    color: #777;
+    font-size: 16px;
+}
+
+/* Style the audio player controls */
 audio {
     width: 100%;
-    background-color: #333;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    padding: 10px;
+    max-width: 400px;
+    margin: 20px auto;
 }
 
-body {
-    background-color: brown;
+/* Center the button */
+#random-audio-button {
+    display: block;
+    margin: 0 auto;
+    background-color: #3498db;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+#random-audio-button:hover {
+    background-color: #0056b3;
+}
+
+a.button {
+    display: inline-block;
+    padding: 10px 20px;
+    text-decoration: none;
+    background-color: #333;
+    color: #fff;
+    border-radius: 20px; 
+    transition: background-color 0.3s;
+}
+
+a.button:hover {
+    background-color: #666; 
 }
