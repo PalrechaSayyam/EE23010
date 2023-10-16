@@ -1,65 +1,75 @@
+/* Body and Background */
 body {
-    background-color: #333; /* Dark background color */
+  font-family: 'Arial', sans-serif;
+  background-color: #222;
+  color: #fff;
+  margin: 0;
+  padding: 0;
 }
-/* Style the audio player container */
+
+.container {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #333; /* Slightly brighter than the body background */
+  border: 1px solid #444;
+  border-radius: 15px; /* Curved edges */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Audio Player Styles */
 .audio-player {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    background-color: #fff;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-    padding: 20px;
-    margin: 20px auto;
-    width: 80%;
+  text-align: center;
+  padding: 20px;
 }
 
-Style the audio player title */
 .audio-player h2 {
-    color: #333;
-    font-size: 24px;
+  font-size: 28px;
+  color: #fff;
+  margin: 10px 0;
 }
 
-/* Style the audio player artist name */
 .audio-player p {
-    color: #777;
-    font-size: 16px;
+  font-size: 18px;
+  color: #ccc;
 }
 
-/* Style the audio player controls */
 audio {
-    width: 100%;
-    max-width: 400px;
-    margin: 20px auto;
+  width: 100%;
+  max-width: 400px;
+  margin: 20px auto;
 }
 
-/* Center the button */
+/* Play Random Audio Button */
 #random-audio-button {
-    display: block;
-    margin: 0 auto;
-    background-color: #3498db;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    cursor: pointer;
-    border-radius: 5px;
+  display: block;
+  margin: 20px auto;
+  background-color: #3498db;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  border-radius: 5px;
+  font-weight: bold;
+  transition: background-color 0.3s;
 }
 
 #random-audio-button:hover {
-    background-color: #0056b3;
+  background-color: #0056b3;
 }
 
+/* Visit Website Link */
 a.button {
-    display: inline-block;
-    padding: 10px 20px;
-    text-decoration: none;
-    background-color: #333;
-    color: #fff;
-    border-radius: 20px; 
-    transition: background-color 0.3s;
+  display: inline-block;
+  padding: 10px 20px;
+  text-decoration: none;
+  background-color: #666;
+  color: #fff;
+  border-radius: 20px;
+  font-weight: bold;
+  transition: background-color 0.3s;
 }
 
 a.button:hover {
-    background-color: #666; 
+  background-color: #444;
 }
