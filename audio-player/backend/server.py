@@ -1,4 +1,4 @@
-from flask import Flask, send_file, render_template
+from flask import Flask, send_file, render_template, jsonify
 import random
 import os
 import base64
@@ -15,7 +15,12 @@ def play_random():
     random_file = audio_files[indices[0]]
     with open(os.path.join(audio_directory, random_file), 'rb') as audio_file:
         base_data = base64.b64encode(audio_file.read()).decode('utf-8')
-        return render_template('pages/front.html',base64_audio_data=base_data)
+        return render_template('pages/front.html',base64_audio_data=base_data,audio_files=audio_files)
+
+@app.route('/get-audio-list')
+def get_audio_list():
+    audio_files = os.listdir(audio_directory)
+    return jsonify(audio_files)
 
 @app.route('/audio/<filename>')
 def serve_audio(filename):

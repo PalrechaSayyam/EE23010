@@ -9,20 +9,105 @@
 <body>
     <div class="audio-player">
         <h2>Title of the Track</h2>
-	<h3>Midnight Memories</h3>
+        <h3>Midnight Memories</h3>
         <p>Artist Name</p>
-	<a class="button" href="https://www.onedirectionmusic.com/gb/home.html">One Direction</a>
+        <a class="button" href="https://www.onedirectionmusic.com/gb/home.html">One Direction</a>
         <audio controls>
-            <source src="data:audio/mpeg;base64,{{ base64_audio_data }}" type="audio/mpeg">
+            <source src="" type="audio/mpeg">
         </audio>
+        <p id="current-song-name"></p>
     </div>
-    <button id="random-audio-button">Play Random Audio</button>
-    <script>
-    const randomAudioButton = document.getElementById('random-audio-button');
+    <button id="shuffle-audio-button" class="audio-buttons">Shuffle Audio</button>
+    <button id="queue-audio-button" class="audio-buttons">Queue Audio</button>
+    <div class="audio-list-container">
+        <div class="audio-list">
+            <h3>List of Audio Files</h3>
+            <ul>
+                {% for audio_file in audio_files %}
+                <li>
+                    <a href="javascript:void(0);" class="audio-file-link" data-filename="{{ audio_file }}">{{ audio_file }}</a>
+                </li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
 
-  randomAudioButton.addEventListener('click', function() {
-    location.reload();
-  });
-</script>
+    <script>
+        const audioLinks = document.querySelectorAll('.audio-file-link');
+        const audioElement = document.querySelector('audio');
+        const currentSongName = document.getElementById('current-song-name');
+
+        audioLinks.forEach(link => {
+            link.addEventListener('click', function() {
+                const filename = this.getAttribute('data-filename');
+                const audioPath = "{{ url_for('serve_audio', filename='') }}" + filename;
+                audioElement.src = audioPath;
+                audioElement.load();
+                audioElement.play();
+                currentSongName.textContent = filename;
+            });
+        });
+    </script>
+    
+    <script>
+        const shuffleAudioButton = document.getElementById('shuffle-audio-button');
+        let audioFiles = [];
+        let currentIndex = 0;
+
+        function playNextShuffledAudio() {
+            if (currentIndex < audioFiles.length) {
+                const audioFile = audioFiles[currentIndex];
+                const audioPath = "{{ url_for('serve_audio', filename='') }}" + audioFile;
+                audioElement.src = audioPath;
+                audioElement.load();
+                audioElement.play();
+                currentIndex++;
+                currentSongName.textContent = audioFile;
+            }
+        }
+
+        shuffleAudioButton.addEventListener('click', function() {
+            currentIndex = 0;
+            fetch("{{ url_for('get_audio_list') }}")
+                .then(response => response.json())
+                .then(data => {
+                    audioFiles = data;
+                    currentIndex = 0;
+
+                    for (let i = audioFiles.length - 1; i > 0; i--) {
+                        const j = Math.floor(Math.random() * (i + 1));
+                        [audioFiles[i], audioFiles[j]] = [audioFiles[j], audioFiles[i]];
+                    }
+
+                    playNextShuffledAudio();
+                });
+        });
+
+        audioElement.addEventListener('ended', playNextShuffledAudio);
+    </script>
+    
+    <script>
+        const queueAudioButton = document.getElementById('queue-audio-button');
+        currentIndex = 0;
+
+        function playNextQueuedAudio() {
+            if (currentIndex < audioLinks.length) {
+                const filename = audioLinks[currentIndex].getAttribute('data-filename');
+                const audioPath = "{{ url_for('serve_audio', filename='') }}" + filename;
+                audioElement.src = audioPath;
+                audioElement.load();
+                audioElement.play();
+                currentIndex++;
+                currentSongName.textContent = filename;
+            }
+        }
+
+        queueAudioButton.addEventListener('click', function() {
+            currentIndex = 0;
+            playNextQueuedAudio();
+        });
+
+        audioElement.addEventListener('ended', playNextQueuedAudio);
+    </script>
 </body>
 </html>
