@@ -1,4 +1,3 @@
-/* Reset some default styles */
 body {
   font-family: 'Arial', sans-serif;
   background-color: #333;
@@ -7,7 +6,6 @@ body {
   padding: 0;
 }
 
-/* Main container styling */
 .container {
   max-width: 600px;
   margin: 0 auto;
@@ -18,7 +16,6 @@ body {
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
-/* Audio player styling */
 .audio-player {
   text-align: center;
   padding: 20px;
@@ -35,14 +32,12 @@ body {
   color: #ccc;
 }
 
-/* Audio player controls */
 audio {
   width: 100%;
   max-width: 400px;
   margin: 20px auto;
 }
 
-/* Shuffle and Queue buttons styling */
 #shuffle-audio-button,
 #queue-audio-button {
   background-color: #FF5722;
@@ -60,7 +55,6 @@ audio {
   background-color: #E64A19;
 }
 
-/* General button styling */
 a.button {
   display: inline-block;
   padding: 10px 20px;
