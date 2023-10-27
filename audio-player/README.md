@@ -50,7 +50,7 @@ pip install -r requirements.txt
 ```
 Change the path in the ```server.py```
 ```python
-app = Flask(__name__, template_folder='/path-to-src-directory', static_folder='/path-to-src-directory/src/src')
+app = Flask(__name__, template_folder='/path-to-src-directory', static_folder='/path-to-src-directory')
 ```
 ```python
 audio_directory = '/path-to-audio-directory''
