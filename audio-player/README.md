@@ -19,8 +19,8 @@ Follow till step three of [Installing and Setting up Ubuntu on Termux
 
 Once your Termux set-up is done, go to the terminal and run the following commands to install ```venv```:
 ```bash
-sudo apt update
-sudo apt install python3-venv
+apt update
+apt install python3-venv
 ```
 After successfully installing  ```venv``` run this command to create a virtual environment:
 ```bash
@@ -47,6 +47,13 @@ cd audio-player
 Run the following command to install all the required dependencies:
 ```bash
 pip install -r requirements.txt
+```
+Change the path in the ```server.py```
+```python
+app = Flask(__name__, template_folder='/path-to-src-directory', static_folder='/path-to-src-directory/src/src')
+audio_directory = '/path-to-audio-directory''
+
+
 ```
 Head to the ```backend``` directory to start the server:
 ```bash
