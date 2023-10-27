@@ -2,7 +2,7 @@
 
 This directory contains all the necessary modules to develop a custom audio player on Termux!!
 
-## setup
+## Setup
 
 ### Termux Installation and setup
 
@@ -48,17 +48,18 @@ Run the following command to install all the required dependencies:
 ```bash
 pip install -r requirements.txt
 ```
+Head to ```backend``` directory
+```bash
+cd backend
+```
 Change the path in the ```server.py```
 ```python
 app = Flask(__name__, template_folder='/path-to-src-directory', static_folder='/path-to-src-directory')
 ```
 ```python
-audio_directory = '/path-to-audio-directory''
-
-
+audio_directory = '/path-to-audio-directory'
 ```
 Head to the ```backend``` directory to start the server:
 ```bash
-cd backend
 python3 server.py
 ```
