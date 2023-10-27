@@ -15,8 +15,6 @@ Follow till step three of [Installing and Setting up Ubuntu on Termux
 
 ### Audio Player setup
 
-#### Clone this repository
-
 #### Virtual Environment setup
 
 Once your Termux set-up is done, go to the terminal and run the following commands to install ```venv```:
