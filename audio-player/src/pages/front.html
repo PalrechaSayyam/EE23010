@@ -1,3 +1,4 @@
+
 <!doctype html>
 <html lang="en">
  <head>
@@ -38,6 +39,8 @@
     audioLinks.forEach((link, index) => {
       link.addEventListener('click', function() {
         if (isQueueMode) {
+          // If in queue mode, find the index of the clicked song
+          // and start playing from that song
           queueCurrentIndex = index + 1;
         }
         const filename = this.getAttribute('data-filename');
@@ -79,7 +82,8 @@
     shuffleAudioButton.addEventListener('click', function() {
       shuffleCurrentIndex = 0;
       isQueueMode = false;
-      
+
+      // Fetch shuffled indices and then play the songs
       fetch('/get-shuffled-indices')
         .then(response => response.json())
         .then(data => {
@@ -90,7 +94,8 @@
 
     const queueAudioButton = document.getElementById('queue-audio-button');
     queueAudioButton.addEventListener('click', function() {
-      isQueueMode = true;
+     isQueueMode = true; 
+      queueCurrentIndex = 0;
       playNextQueuedAudio();
     });
 
