@@ -78,5 +78,5 @@ After locating the above URL on your browser, head towards the ```play-random-au
 
 This would look something like this on the web browser:
 ```
-your-ip-address:port-number/play-random-audio
+https://your-ip-address:port-number/play-random-audio/
 ```
