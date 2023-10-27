@@ -63,16 +63,16 @@ Head to the ```backend``` directory to start the server:
 ```bash
 python3 server.py
 ```
-you can see there would be two links generated and would look something like this:
+you can see there would be two links generated and would look something like this (below is an example for reference):
 ```bash
 Running on http://127.0.0.1:5000
 Running on http://192.0.0.2:5000
 ```
 You can use either of the two links generated where ```5000``` is the port number.
 
-```127.0.0.1``` is the loop back address, which allows you to access your Flask app on your local machine.
+```127.0.0.1``` is the loopback address, which allows you to access your Flask app on your local machine.
 
-It's typically the IP address your company uses to access your Flask app.
+It's typically the IP address your computer uses to access your Flask app.
 
 After locating the above URL on your browser, head towards the ```play-random-audio``` route.
 
