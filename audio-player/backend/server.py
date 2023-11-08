@@ -3,9 +3,9 @@ import random
 import os
 import base64
 
-app = Flask(__name__, template_folder='/home/sayyam/EE23010/audio-player/src', static_folder='/home/sayyam/EE23010/audio-player/src')
+app = Flask(__name__, template_folder='/storage/self/primary/Download/EE23010/audio-player/src', static_folder='/storage/self/primary/Download/EE23010/audio-player/src')
 
-audio_directory = '/home/sayyam/EE23010/audio-player/audio'
+audio_directory = '/storage/self/primary/Download/EE23010/audio-player/audio'
 
 @app.route('/play-random-audio')
 def play_random():

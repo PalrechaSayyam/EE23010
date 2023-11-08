@@ -32,7 +32,7 @@ body {
   color: #ccc;
 }
 
-.audio-control {
+.custom-audio-control {
     display: flex;
     align-items: center;
     background-color: #222;
@@ -42,28 +42,28 @@ body {
     color: #fff;
 }
 
-.audio-control i {
+.custom-audio-control i {
     font-size: 24px;
-    margin: 0 10px;
     cursor: pointer;
 }
 
-.audio-control i.fa-play {
+.custom-audio-control i.fa-play {
     color: #28a745; /* Change this to the desired color for the play icon */
 }
 
-.audio-control i.fa-play.active {
-    color: #dc3545; /* Change this to the desired color for the active play icon */
+.custom-audio-control i.fa-bar-chart {
+    color: #007bff; /* Change this to the desired color for the visualizations icon */
 }
 
-.audio-control p {
+.custom-audio-control p {
     font-size: 20px;
     margin: 0;
     flex: 1;
+    text-align: center; /* To center-align the text in the middle */
 }
 
-.audio-control i.fa-bar-chart {
-    color: #007bff; /* Change this to the desired color for the visualizations icon */
+.custom-audio-control i.fa-bar-chart {
+    margin-left: auto; /* To push the visualizations icon to the right */
 }
 
 .transparent-button {

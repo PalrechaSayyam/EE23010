@@ -1,35 +1,33 @@
-
 <!doctype html>
 <html lang="en">
  <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='components/front.css') }}">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <title>Custom Audio Player</title>
  </head>
  <body>
   <div class="audio-player">
    <h2>Title of the Track</h2>
    <h3>Midnight Memories</h3>
-   <div class="audio-control">
-    <i class="fa fa-play" id="play-icon"></i> <!-- Play icon -->
-    <p>Play A Song</p><!-- Text --> <i class="fa fa-bar-chart"></i> <!-- Visualizations icon -->
-   </div><input type="text" id="search-input" placeholder="Search..."> <button id="search-button">Search</button>
-   <audio controls style="display: none;">
+   <input type="text" id="search-input" placeholder="Search...">
+   <button id="search-button">Search</button>
+   <audio controls>
     <source src="" type="audio/mpeg">
    </audio>
    <p id="current-song-name"></p>
   </div>
   <div class="audio-buttons-container">
-   <button id="shuffle-audio-button" class="audio-buttons">Shuffle Audio</button> <button id="queue-audio-button" class="audio-buttons">Queue Audio</button>
-  </div>
+  <button id="shuffle-audio-button" class="audio-buttons">Shuffle Audio</button>
+  <button id="queue-audio-button" class="audio-buttons">Queue Audio</button>
+</div>
   <div class="audio-list-container">
    <div class="audio-list">
     <h3>List of Audio Files</h3>
     <ul>
-     {% for audio_file in audio_files %} 
-     <li><a href="javascript:void(0);" class="audio-file-link" data-filename="{{ audio_file }}">{{ audio_file }}</a></li> {% endfor %}
+     {% for audio_file in audio_files %}
+     <li><a href="javascript:void(0);" class="audio-file-link" data-filename="{{ audio_file }}">{{ audio_file }}</a></li>
+     {% endfor %}
     </ul>
    </div>
   </div>
@@ -128,21 +126,5 @@
       }
     });
   </script>
-  <script>
-	  const playIcon = document.getElementById('play-icon');
-const audioElement = document.querySelector('audio');
-
-playIcon.addEventListener('click', function() {
-  if (audioElement.paused) {
-    audioElement.play();
-    playIcon.classList.remove('fa-play');
-    playIcon.classList.add('fa-pause');
-  } else {
-    audioElement.pause();
-    playIcon.classList.remove('fa-pause');
-    playIcon.classList.add('fa-play');
-  }
-});
- </script>
  </body>
 </html>
