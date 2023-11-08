@@ -32,6 +32,50 @@ body {
   color: #ccc;
 }
 
+.audio-control {
+    display: flex;
+    align-items: center;
+    background-color: #222;
+    border-radius: 10px;
+    padding: 10px;
+    margin: 10px 0;
+    color: #fff;
+}
+
+.audio-control i {
+    font-size: 24px;
+    margin: 0 10px;
+    cursor: pointer;
+}
+
+.audio-control i.fa-play {
+    color: #28a745; /* Change this to the desired color for the play icon */
+}
+
+.audio-control i.fa-play.active {
+    color: #dc3545; /* Change this to the desired color for the active play icon */
+}
+
+.audio-control p {
+    font-size: 20px;
+    margin: 0;
+    flex: 1;
+}
+
+.audio-control i.fa-bar-chart {
+    color: #007bff; /* Change this to the desired color for the visualizations icon */
+}
+
+.transparent-button {
+  background: transparent;
+  border: none;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
 audio {
   width: 100%;
   max-width: 400px;
